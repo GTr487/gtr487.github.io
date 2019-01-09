@@ -1,0 +1,143 @@
+
+/*!* ----------
+* $Core
+*/
+
+.cont
+  postion relative
+  width 100vw
+
+.l-portada
+  background-color #fafafa
+  width 100vw
+  height 100vh
+  position absolute
+  top 0
+  left 0
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  font-family Ubuntu-Mono
+
+.backlogo
+  width 10em
+  height 10em
+  background-color black
+  transform rotate(45deg)
+  margin-top 2em
+
+.logo
+  position relative
+  width 100%
+  height 100%
+  overflow hidden
+  transform rotate(-45deg)
+
+.verbose
+  background-color black
+  display inline-block
+  padding .5em
+  position relative
+  text-align center
+  white-space nowrap
+  margin-top 4em
+  .ver-name
+    font-size 1.5em
+    line-height 1em
+    letter-spacing .1em
+  .ver-sub
+    font-weight normal
+    font-size 1.2em
+    line-height 1em
+    margin-top -0.2em
+    text-align left
+    padding-left .5em
+  .contact
+    letter-spacing .05em
+    cursor pointer
+    padding .5em
+    background-color transparent
+    color black
+    position absolute
+    border none
+    right 2px
+    bottom -1.6em
+    font-family Ubuntu-Mono
+    font-size .8em
+    font-weight bold
+    &:hover
+      color red
+    &:focus
+      outline none
+
+.l-cuerpo
+  background-color #000
+  width 100vw
+  height 100vh
+  font-family Ubuntu-Mono
+  overflow-y auto
+  overflow-x hidden
+  padding 1em
+  margin auto
+  padding-top 2em
+  transform skewX(20deg)
+
+.ShiningLines
+  background-color white
+  position absolute
+  top 0
+  left 150vw
+  width 10vw
+  height 100vh
+  transform skewX(-20deg)
+  animation shining-moves 6s infinite
+  &::before
+  &::after
+    background-color white
+    position absolute
+    top 0
+    height 100vh
+    content ''
+  &::after
+    left 40vw
+    width 20vw
+  &::before
+    left 15vw
+    width 5vw
+
+.skw-cont
+  background-color #000
+  position absolute
+  top 0
+  left 150vw
+  width 200vw
+  height 100vh
+  transform skewX(-20deg)
+  font-family Ubuntu-Mono
+
+.c-section
+  width 100%
+
+.c-about
+  & .s-title
+    writing-mode vertical-lr
+    float left
+    margin-top 1em
+    margin-right -100%
+    font-size 3em !important
+
+.retrato
+  width 15em
+  display block
+  margin auto
+
+.c-contact
+  background #fafafa
+  color white
+  width 100%
+  height 100%
+  border 1px solid #999
+  .s-title
+    color black
+    margin-bottom .5em

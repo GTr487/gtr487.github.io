@@ -1,0 +1,18 @@
+//- include/nav.jade
+
+.main-menu
+  input#mm-toggle(type='checkbox')
+  label.mm-hamburger(for='mm-toggle')
+    span.mm-btn
+  nav.mm-menu
+    ul
+      li
+        a.mm-selected#mmHome(href='#' data-target='home') Home
+      li
+        a#mmAbout(href='#' data-target='about') Sobre_mi
+      li
+        a#mmFolio(href='#' data-target='folio') Folio
+      li
+        a#mmBlog(href='#' disabled data-info='Proximamente') Blog
+      li
+        a#mmContact(href='#' data-target='contact') Contactame

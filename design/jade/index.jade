@@ -1,0 +1,28 @@
+//output:../../index.html
+
+include includes/head.jade
+
+body
+  .cont
+    include includes/social.jade
+    include includes/nav.jade
+    header.l-portada
+      .ShiningLines
+      .backlogo
+        .logo.glitch-show
+          include includes/logo.svg.jade
+          .logoCian.glitch-hide
+            include includes/logo.svg.jade
+          .logoRojo.glitch-hide
+            include includes/logo.svg.jade
+      
+      .verbose
+        h1.ver-name  GÜNTHER MOLINA
+        h2.ver-sub  web_dev
+        button#vb-contact.contact //CONTACTAR
+          
+    .skw-cont
+      main.l-cuerpo#cuerpo
+        include includes/about.jade
+        include includes/folio.jade
+        include includes/contact.jade

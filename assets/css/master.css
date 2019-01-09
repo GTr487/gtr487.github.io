@@ -1,0 +1,854 @@
+@charset "UTF-8";
+/** ################################################### */
+/**
+*  [ @Master ] - Personal Page (alpha 0.1)
+*    Author: Gunther Molina
+*    Modificacion:
+*        09/01/19 - [/alpha]
+*/
+/** ----------
+*   $INDEX
+*   ----------
+*        -Fonts      //Definicion de Fontfaces
+*        -Reset      //Reset basico
+*        -Functions  //Funciones (Stylus)
+*        -Base       //Estilos basicos
+*        -Core       //Estilos estructurales
+*        -Modulos    //Estilos de Modulos
+*
+*        -Keyframes
+*        -Media-querys
+*/
+/** ################################################### */
+/** ----------
+* $Fonts
+*/
+@font-face {
+  font-family: Ubuntu;
+  src: url("../fonts/Ubuntu-Regular.ttf");
+}
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url("../fonts/Ubuntu-Bold.ttf");
+}
+@font-face {
+  font-family: Ubuntu-Mono;
+  src: url("../fonts/UbuntuMono-Regular.ttf");
+}
+/** ----------
+* $Reset
+*/
+* {
+  text-decoration: none;
+  list-style: none;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  box-sizing: border-box;
+}
+html {
+  line-height: 1.5em;
+  font-size: 1em;
+}
+/** ----------
+* $Base
+*/
+html {
+  color: #fff;
+  font-family: Ubuntu;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+form {
+  text-align: center;
+}
+.inp-cont {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+.inp-cont .icon {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  font-size: 1.3em;
+  width: 1.5em;
+  height: 100%;
+  line-height: 1.8em;
+  text-align: center;
+}
+.inp-cont input,
+.inp-cont textarea {
+  padding-left: 1.7em;
+}
+.inp-cont textarea {
+  height: 10.3em;
+  resize: none;
+}
+textarea,
+input {
+  background: #fff;
+  border: 3px solid #000;
+  padding: 0.2em 0.5em;
+  font-size: 1.3em;
+  line-height: 1em;
+  font-family: Ubuntu-Mono;
+  display: block;
+  margin: auto;
+}
+textarea::placeholder,
+input::placeholder {
+  text-align: center;
+}
+input:invalid {
+  color: #f00;
+}
+input:invalid:focus {
+  color: #000;
+}
+input:valid {
+  color: #111;
+}
+input:valid:focus {
+  color: #000;
+}
+input[type='submit'] {
+  color: #fff;
+  background: #000;
+  font-family: Ubuntu-Mono;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+input[type='submit']:valid {
+  color: #fff;
+}
+input[type='submit']:hover {
+  color: #0ff;
+}
+input[type='submit']:active {
+  color: #f00;
+}
+.g487 {
+  fill: #fff;
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.logoCian {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: translate(-6px, -3px);
+}
+.logoCian .trazo-Logo {
+  fill: #0ff !important;
+}
+.logoRojo {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  transform: translate(6px, 2px);
+}
+.logoRojo .trazo-Logo {
+  fill: #f00 !important;
+}
+/** ----------
+* $Core
+*/
+.cont {
+  postion: relative;
+  width: 100vw;
+}
+.l-portada {
+  background-color: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Ubuntu-Mono;
+}
+.backlogo {
+  width: 10em;
+  height: 10em;
+  background-color: #000;
+  transform: rotate(45deg);
+  margin-top: 2em;
+}
+.logo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: rotate(-45deg);
+}
+.verbose {
+  background-color: #000;
+  display: inline-block;
+  padding: 0.5em;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 4em;
+}
+.verbose .ver-name {
+  font-size: 1.5em;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+}
+.verbose .ver-sub {
+  font-weight: normal;
+  font-size: 1.2em;
+  line-height: 1em;
+  margin-top: -0.2em;
+  text-align: left;
+  padding-left: 0.5em;
+}
+.verbose .contact {
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 0.5em;
+  background-color: transparent;
+  color: #000;
+  position: absolute;
+  border: none;
+  right: 2px;
+  bottom: -1.6em;
+  font-family: Ubuntu-Mono;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.verbose .contact:hover {
+  color: #f00;
+}
+.verbose .contact:focus {
+  outline: none;
+}
+.l-cuerpo {
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  font-family: Ubuntu-Mono;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1em;
+  margin: auto;
+  padding-top: 2em;
+  transform: skewX(20deg);
+}
+.ShiningLines {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 150vw;
+  width: 10vw;
+  height: 100vh;
+  transform: skewX(-20deg);
+  animation: shining-moves 6s infinite;
+}
+.ShiningLines::before,
+.ShiningLines::after {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  content: '';
+}
+.ShiningLines::after {
+  left: 40vw;
+  width: 20vw;
+}
+.ShiningLines::before {
+  left: 15vw;
+  width: 5vw;
+}
+.skw-cont {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 150vw;
+  width: 200vw;
+  height: 100vh;
+  transform: skewX(-20deg);
+  font-family: Ubuntu-Mono;
+}
+.c-section {
+  width: 100%;
+}
+.c-about .s-title {
+  writing-mode: vertical-lr;
+  float: left;
+  margin-top: 1em;
+  margin-right: -100%;
+  font-size: 3em !important;
+}
+.retrato {
+  width: 15em;
+  display: block;
+  margin: auto;
+}
+.c-contact {
+  background: #fafafa;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #999;
+}
+.c-contact .s-title {
+  color: #000;
+  margin-bottom: 0.5em;
+}
+.glitch-show {
+  animation: anim-glitch-show 3s infinite linear alternate;
+}
+.glitch-hide {
+  display: block;
+  animation: anim-glitch-hide 3s infinite linear alternate;
+}
+.social {
+  position: absolute;
+  z-index: 9;
+  top: 0.5em;
+  left: 0.5em;
+}
+.social a {
+  text-decoration: none;
+  padding: 0.4em;
+}
+.social a:hover i {
+  color: #666;
+}
+.social a:active i {
+  color: #f00;
+}
+.social:focus {
+  outline: none;
+}
+.social i {
+  font-size: 1.2em;
+  color: #e0e0e0;
+  text-shadow: -1px -1px #999;
+  transition: 300ms;
+}
+.s-title {
+  font-size: 2em;
+  line-height: 1em;
+}
+.skillcloud li {
+  display: inline-block;
+}
+.skillcloud li:nth-child(n+2)::before {
+  content: '/';
+}
+.main-menu {
+  position: fixed;
+  right: 0.5em;
+  top: 0.5em;
+  z-index: 9;
+}
+#mm-toggle {
+  display: none;
+}
+#mm-toggle:checked ~ .mm-hamburger .mm-btn {
+  background-color: transparent;
+}
+#mm-toggle:checked ~ .mm-hamburger .mm-btn::before {
+  top: 0;
+  transform: rotate(45deg);
+  background-color: #f00;
+}
+#mm-toggle:checked ~ .mm-hamburger .mm-btn::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background-color: #f00;
+}
+#mm-toggle:checked ~ .mm-menu {
+  display: block;
+}
+.mm-hamburger {
+  background-color: #000;
+  width: 2em;
+  height: 2em;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.mm-btn {
+  width: 70%;
+  height: 13%;
+  background-color: #fff;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 300ms;
+}
+.mm-btn::before,
+.mm-btn::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: 300ms;
+}
+.mm-btn::before {
+  top: -200%;
+}
+.mm-btn::after {
+  top: 200%;
+}
+.mm-menu {
+  display: none;
+  position: absolute;
+  top: 2em;
+  right: 0;
+  background-color: #000;
+  padding: 0.5em 0;
+  width: 10em;
+}
+.mm-menu a {
+  text-align: right;
+  color: #fff;
+  user-select: none;
+  padding: 0.5em 1.5em;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.mm-menu a:hover {
+  padding-left: 0.7em;
+  color: #0ff;
+}
+.mm-menu a:hover::before {
+  content: '> ';
+}
+.mm-menu a:active {
+  color: #666;
+}
+.mm-menu a:active::before {
+  content: '>';
+}
+.mm-menu a[disabled] {
+  color: #333 !important;
+  cursor: not-allowed;
+}
+.mm-menu a[disabled]:hover::before {
+  display: none;
+}
+.mm-menu a[disabled]:active::after {
+  position: absolute;
+  content: attr(data-info);
+  background: #000;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 5px;
+  left: 0;
+  font-size: 0.7em;
+  padding: 0 0.5em;
+}
+.mm-selected {
+  color: #f00 !important;
+  transform: rotate(180deg);
+  text-align: right !important;
+}
+.mm-selected:hover::before {
+  display: none;
+}
+/** ----------
+* $Keyframes
+*/
+@-moz-keyframes anim-glitch-hide {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  91% {
+    clip-path: polygon(0 73%, 100% 73%, 100% 37%, 0 37%);
+  }
+  92% {
+    clip-path: polygon(0 77%, 100% 77%, 100% 62%, 0 62%);
+  }
+  93% {
+    clip-path: polygon(0 48%, 100% 48%, 100% 85%, 0 85%);
+  }
+  94% {
+    clip-path: polygon(0 51%, 100% 51%, 100% 37%, 0 37%);
+  }
+  95% {
+    clip-path: polygon(0 11%, 100% 11%, 100% 85%, 0 85%);
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  97% {
+    clip-path: polygon(0 79%, 100% 79%, 100% 86%, 0 86%);
+  }
+  98% {
+    clip-path: polygon(0 57%, 100% 57%, 100% 84%, 0 84%);
+  }
+  99% {
+    clip-path: polygon(0 1%, 100% 1%, 100% 16%, 0 16%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+}
+@-webkit-keyframes anim-glitch-hide {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  91% {
+    clip-path: polygon(0 73%, 100% 73%, 100% 37%, 0 37%);
+  }
+  92% {
+    clip-path: polygon(0 77%, 100% 77%, 100% 62%, 0 62%);
+  }
+  93% {
+    clip-path: polygon(0 48%, 100% 48%, 100% 85%, 0 85%);
+  }
+  94% {
+    clip-path: polygon(0 51%, 100% 51%, 100% 37%, 0 37%);
+  }
+  95% {
+    clip-path: polygon(0 11%, 100% 11%, 100% 85%, 0 85%);
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  97% {
+    clip-path: polygon(0 79%, 100% 79%, 100% 86%, 0 86%);
+  }
+  98% {
+    clip-path: polygon(0 57%, 100% 57%, 100% 84%, 0 84%);
+  }
+  99% {
+    clip-path: polygon(0 1%, 100% 1%, 100% 16%, 0 16%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+}
+@-o-keyframes anim-glitch-hide {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  91% {
+    clip-path: polygon(0 73%, 100% 73%, 100% 37%, 0 37%);
+  }
+  92% {
+    clip-path: polygon(0 77%, 100% 77%, 100% 62%, 0 62%);
+  }
+  93% {
+    clip-path: polygon(0 48%, 100% 48%, 100% 85%, 0 85%);
+  }
+  94% {
+    clip-path: polygon(0 51%, 100% 51%, 100% 37%, 0 37%);
+  }
+  95% {
+    clip-path: polygon(0 11%, 100% 11%, 100% 85%, 0 85%);
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  97% {
+    clip-path: polygon(0 79%, 100% 79%, 100% 86%, 0 86%);
+  }
+  98% {
+    clip-path: polygon(0 57%, 100% 57%, 100% 84%, 0 84%);
+  }
+  99% {
+    clip-path: polygon(0 1%, 100% 1%, 100% 16%, 0 16%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+}
+@keyframes anim-glitch-hide {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  91% {
+    clip-path: polygon(0 73%, 100% 73%, 100% 37%, 0 37%);
+  }
+  92% {
+    clip-path: polygon(0 77%, 100% 77%, 100% 62%, 0 62%);
+  }
+  93% {
+    clip-path: polygon(0 48%, 100% 48%, 100% 85%, 0 85%);
+  }
+  94% {
+    clip-path: polygon(0 51%, 100% 51%, 100% 37%, 0 37%);
+  }
+  95% {
+    clip-path: polygon(0 11%, 100% 11%, 100% 85%, 0 85%);
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+  97% {
+    clip-path: polygon(0 79%, 100% 79%, 100% 86%, 0 86%);
+  }
+  98% {
+    clip-path: polygon(0 57%, 100% 57%, 100% 84%, 0 84%);
+  }
+  99% {
+    clip-path: polygon(0 1%, 100% 1%, 100% 16%, 0 16%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+  }
+}
+@-moz-keyframes anim-glitch-show {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  91% {
+    clip-path: polygon(0 99%, 100% 99%, 100% 15%, 0 15%);
+  }
+  92% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 12%, 0 12%);
+  }
+  93% {
+    clip-path: polygon(0 65%, 100% 65%, 100% 89%, 0 89%);
+  }
+  94% {
+    clip-path: polygon(0 24%, 100% 24%, 100% 40%, 0 40%);
+  }
+  95% {
+    clip-path: polygon(0 36%, 100% 36%, 100% 63%, 0 63%);
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  97% {
+    clip-path: polygon(0 43%, 100% 43%, 100% 24%, 0 24%);
+  }
+  98% {
+    clip-path: polygon(0 18%, 100% 18%, 100% 17%, 0 17%);
+  }
+  99% {
+    clip-path: polygon(0 5%, 100% 5%, 100% 32%, 0 32%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@-webkit-keyframes anim-glitch-show {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  91% {
+    clip-path: polygon(0 99%, 100% 99%, 100% 15%, 0 15%);
+  }
+  92% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 12%, 0 12%);
+  }
+  93% {
+    clip-path: polygon(0 65%, 100% 65%, 100% 89%, 0 89%);
+  }
+  94% {
+    clip-path: polygon(0 24%, 100% 24%, 100% 40%, 0 40%);
+  }
+  95% {
+    clip-path: polygon(0 36%, 100% 36%, 100% 63%, 0 63%);
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  97% {
+    clip-path: polygon(0 43%, 100% 43%, 100% 24%, 0 24%);
+  }
+  98% {
+    clip-path: polygon(0 18%, 100% 18%, 100% 17%, 0 17%);
+  }
+  99% {
+    clip-path: polygon(0 5%, 100% 5%, 100% 32%, 0 32%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@-o-keyframes anim-glitch-show {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  91% {
+    clip-path: polygon(0 99%, 100% 99%, 100% 15%, 0 15%);
+  }
+  92% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 12%, 0 12%);
+  }
+  93% {
+    clip-path: polygon(0 65%, 100% 65%, 100% 89%, 0 89%);
+  }
+  94% {
+    clip-path: polygon(0 24%, 100% 24%, 100% 40%, 0 40%);
+  }
+  95% {
+    clip-path: polygon(0 36%, 100% 36%, 100% 63%, 0 63%);
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  97% {
+    clip-path: polygon(0 43%, 100% 43%, 100% 24%, 0 24%);
+  }
+  98% {
+    clip-path: polygon(0 18%, 100% 18%, 100% 17%, 0 17%);
+  }
+  99% {
+    clip-path: polygon(0 5%, 100% 5%, 100% 32%, 0 32%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes anim-glitch-show {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  91% {
+    clip-path: polygon(0 99%, 100% 99%, 100% 15%, 0 15%);
+  }
+  92% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 12%, 0 12%);
+  }
+  93% {
+    clip-path: polygon(0 65%, 100% 65%, 100% 89%, 0 89%);
+  }
+  94% {
+    clip-path: polygon(0 24%, 100% 24%, 100% 40%, 0 40%);
+  }
+  95% {
+    clip-path: polygon(0 36%, 100% 36%, 100% 63%, 0 63%);
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  97% {
+    clip-path: polygon(0 43%, 100% 43%, 100% 24%, 0 24%);
+  }
+  98% {
+    clip-path: polygon(0 18%, 100% 18%, 100% 17%, 0 17%);
+  }
+  99% {
+    clip-path: polygon(0 5%, 100% 5%, 100% 32%, 0 32%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@-moz-keyframes shining-moves {
+  from {
+    left: 150vw;
+  }
+  to {
+    left: -150vw;
+  }
+}
+@-webkit-keyframes shining-moves {
+  from {
+    left: 150vw;
+  }
+  to {
+    left: -150vw;
+  }
+}
+@-o-keyframes shining-moves {
+  from {
+    left: 150vw;
+  }
+  to {
+    left: -150vw;
+  }
+}
+@keyframes shining-moves {
+  from {
+    left: 150vw;
+  }
+  to {
+    left: -150vw;
+  }
+}
+/** ----------
+* $Media-query
+*/
+@media only screen and (min-width: 48em) {
+  .cc {
+    color: #f00;
+  }
+}
+@media only screen and (min-width: 64em) {
+  html {
+    font-size: 1.2em;
+  }
+  .cont {
+    height: 100vh;
+  }
+  .verbose h1 {
+    font-size: 2em;
+  }
+}
+@media only screen and (min-width: 85.375em) {
+  html {
+    font-size: 1.6em;
+  }
+}
+@media only screen and (min-width: 120em) {
+  html {
+    font-size: 2.5em;
+  }
+  .backlogo {
+    width: 15em;
+    height: 15em;
+  }
+}
+@media only screen and (min-width: 160em) {
+  html {
+    font-size: 3em;
+  }
+}

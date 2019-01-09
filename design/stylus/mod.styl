@@ -1,0 +1,139 @@
+/** ----------
+* $Modulos
+*/
+.glitch-show
+  animation anim-glitch-show 3s infinite linear alternate
+
+.glitch-hide
+  display block
+  animation anim-glitch-hide 3s infinite linear alternate
+
+.social
+  position absolute
+  z-index 9
+  top 0.5em
+  left 0.5em
+  & a
+    text-decoration none
+    padding 0.4em
+    &:hover i
+      color #666
+    &:active i
+      color #f00
+  &:focus
+    outline none
+  & i
+    font-size 1.2em
+    color #e0e0e0
+    text-shadow -1px -1px #999
+    transition 300ms
+
+.s-title
+  font-size 2em
+  line-height 1em
+
+.skillcloud li
+  display inline-block
+  &:nth-child(n+2)::before
+    content '/'
+
+.main-menu
+  position fixed
+  right 0.5em
+  top 0.5em
+  z-index 9
+
+#mm-toggle
+  display none
+  &:checked ~ .mm-hamburger .mm-btn
+    background-color: transparent
+    &::before
+      top 0
+      transform rotate(45deg)
+      background-color #f00
+    &::after
+      top 0
+      transform rotate(-45deg)
+      background-color #f00
+  &:checked ~ .mm-menu
+    display block
+
+.mm-hamburger
+  background-color #000
+  width 2em
+  height 2em
+  position relative
+  display inline-block
+  cursor pointer
+
+.mm-btn
+  width 70%
+  height 13%
+  background-color #fff
+  display inline-block
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+  transition 300ms
+  &::before
+  &::after
+    position absolute
+    content ''
+    width 100%
+    height 100%
+    background-color #fff
+    transition 300ms
+  &::before
+    top -200%
+  &::after
+    top 200%
+
+.mm-menu
+  display none
+  position absolute
+  top 2em
+  right 0
+  background-color #000
+  padding 0.5em 0
+  width 10em
+  & a
+    text-align right
+    color #fff
+    user-select none
+    padding 0.5em 1.5em
+    width 100%
+    height 100%
+    display block
+    &:hover
+      padding-left 0.7em
+      color #0ff
+      &::before
+        content '> '
+    &:active
+      color #666
+      &::before
+        content '>'
+    &[disabled]
+      color #333 !important
+      cursor not-allowed
+      &:hover::before
+        display none
+      &:active::after
+        position absolute
+        content attr(data-info)
+        background black
+        color #fff
+        border 1px solid #666
+        border-radius 5px
+        left 0
+        font-size .7em
+        padding 0 .5em
+
+
+.mm-selected
+  color #f00 !important
+  transform rotate(180deg)
+  text-align right !important
+  &:hover::before
+    display none

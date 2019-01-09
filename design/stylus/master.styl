@@ -1,0 +1,55 @@
+//out: ../../assets/css/master.css
+@charset "UTF-8"
+/*!* ################################################### */
+/*!*
+*  [ @Master ] - Personal Page (alpha 0.1)
+*    Author: Gunther Molina
+*    Modificacion:
+*        09/01/19 - [/alpha]
+*/
+/*!* ----------
+*   $INDEX
+*   ----------
+*        -Fonts      //Definicion de Fontfaces
+*        -Reset      //Reset basico
+*        -Functions  //Funciones (Stylus)
+*        -Base       //Estilos basicos
+*        -Core       //Estilos estructurales
+*        -Modulos    //Estilos de Modulos
+*
+*        -Keyframes
+*        -Media-querys
+*/
+/*!* ################################################### */
+
+/// VARIABLES STYLUS ----
+
+//Fonts-sizes
+base_font-size     = 1em
+base_line-height   = 1.5em
+medium_font-size   = 1.2em // 1024px
+large_font-size    = 1.6em // 1366px
+xlarge_font-size   = 2.5em // 1920px
+xxlarge_font-size  = 3em   // 2560px
+
+//Brakpoints
+bp-small    = 48em       // 768px
+bp-medium   = 64em       // 1024px
+bp-large    = 85.375em   // 1366px
+bp-xlarge   = 120em      // 1920px
+bp-xxlarge  = 160em      // 2560px
+
+//0-768-1024-1366-1920-2560
+
+
+
+//////////////////////
+
+@import 'faces.styl'
+@import 'reset.styl'
+@import 'functions.styl'
+@import 'base.styl'
+@import 'core.styl'
+@import 'mod.styl'
+@import 'keyframe.styl'
+@import 'mediaq.styl'
