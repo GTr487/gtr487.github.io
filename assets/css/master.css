@@ -68,6 +68,7 @@ form {
   display: inline-block;
   position: relative;
   margin-bottom: 0.5em;
+  width: 100%;
 }
 .inp-cont .icon {
   color: #fff;
@@ -84,6 +85,7 @@ form {
 .inp-cont input,
 .inp-cont textarea {
   padding-left: 1.7em;
+  width: 100%;
 }
 .inp-cont textarea {
   height: 10.3em;
@@ -116,21 +118,14 @@ input:valid {
 input:valid:focus {
   color: #000;
 }
-input[type='submit'] {
-  color: #fff;
-  background: #000;
-  font-family: Ubuntu-Mono;
-  text-transform: uppercase;
-  font-weight: bold;
-}
 input[type='submit']:valid {
   color: #fff;
 }
-input[type='submit']:hover {
-  color: #0ff;
+input[type='submit']:focus {
+  outline: none;
 }
 input[type='submit']:active {
-  color: #f00;
+  background: #05b5b5;
 }
 .g487 {
   fill: #fff;
@@ -167,6 +162,13 @@ input[type='submit']:active {
 .logoRojo .trazo-Logo {
   fill: #f00 !important;
 }
+.link {
+  font-weight: bold;
+  text-shadow: 0 0 1px #0ff;
+}
+.link:hover {
+  text-shadow: 1px 1px 0 #f00, -1px -1px 0 #0ff;
+}
 /** ----------
 * $Core
 */
@@ -193,6 +195,7 @@ input[type='submit']:active {
   background-color: #000;
   transform: rotate(45deg);
   margin-top: 2em;
+  box-shadow: 1px 1px 2px #999;
 }
 .logo {
   position: relative;
@@ -209,6 +212,7 @@ input[type='submit']:active {
   text-align: center;
   white-space: nowrap;
   margin-top: 4em;
+  box-shadow: 1px 1px 2px #999;
 }
 .verbose .ver-name {
   font-size: 1.5em;
@@ -244,15 +248,13 @@ input[type='submit']:active {
   outline: none;
 }
 .l-cuerpo {
-  background-color: #000;
+  padding-top: 1.5em;
   width: 100vw;
   height: 100vh;
   font-family: Ubuntu-Mono;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 1em;
   margin: auto;
-  padding-top: 2em;
   transform: skewX(20deg);
 }
 .ShiningLines {
@@ -290,16 +292,24 @@ input[type='submit']:active {
   height: 100vh;
   transform: skewX(-20deg);
   font-family: Ubuntu-Mono;
+  box-shadow: -2px -2px 30px #bbb;
 }
 .c-section {
   width: 100%;
+  padding: 2em 1em 1em 1em;
+}
+.c-about .s-title-cont {
+  float: left;
+  margin-top: 4em;
+  margin-right: -100%;
+  display: inline-block;
 }
 .c-about .s-title {
   writing-mode: vertical-lr;
-  float: left;
-  margin-top: 1em;
-  margin-right: -100%;
   font-size: 3em !important;
+}
+.abt-desc {
+  font-size: 1.125em;
 }
 .retrato {
   width: 15em;
@@ -307,15 +317,106 @@ input[type='submit']:active {
   margin: auto;
 }
 .c-contact {
-  background: #fafafa;
   color: #fff;
   width: 100%;
-  height: 100%;
-  border: 1px solid #999;
+  min-height: 100%;
 }
 .c-contact .s-title {
   color: #000;
   margin-bottom: 0.5em;
+}
+.c-form {
+  margin: auto;
+  width: 80%;
+}
+.c-folio .s-title {
+  text-align: right;
+  font-size: 3em;
+  padding-right: 1em;
+}
+.fl-desc {
+  line-height: 1em;
+  margin: 0.5em 0 1em 0;
+}
+.fl-menu {
+  display: flex;
+}
+.fl-select {
+  font-size: 1.2em;
+  padding: 0.2em 0.5em;
+  font-family: Ubuntu-Mono;
+  background: #fff;
+  border: 3px solid #000;
+  color: #000;
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+.fl-select option {
+  background: #fafafa;
+}
+.fl-search {
+  width: 50%;
+}
+.fl-display {
+  padding-top: 0.5em;
+}
+.fl-ele {
+  background: #fafafa;
+  display: flex;
+  padding: 0.5em;
+  margin-bottom: 0.2em;
+}
+.fl-ele .ele-verb {
+  padding-left: 0.5em;
+  width: 100%;
+}
+.fl-ele .ele-verb .ele-title {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+.fl-ele .ele-verb .ele-desc {
+  font-size: 1em;
+  text-align: center;
+  color: #000;
+}
+.fl-ele .ele-verb .ele-leng {
+  font-size: 0.7em;
+  text-align: right;
+  display: block;
+  color: #666;
+  padding-right: 1em;
+  font-style: italic;
+}
+.ele-t1 img {
+  width: 6em;
+  height: 6em;
+  background: #f00;
+}
+.ele-t2 .ele-verb,
+.ele-t3 .ele-verb {
+  width: 100%;
+}
+.ele-t3 .ele-verb {
+  display: flex;
+  line-height: 1em;
+  align-items: center;
+  padding: 0;
+  justify-content: space-between;
+}
+.ele-t3 .ele-verb .ele-title {
+  background: #fff;
+  border-right: 1px solid #999;
+  text-align: left;
+  display: inline-block;
+  padding-right: 0.5em;
+}
+.ele-t3 .ele-verb .ele-desc {
+  padding: 0 0.5em;
+}
+.ele-t3 .ele-verb .ele-leng {
+  padding: 0;
 }
 .glitch-show {
   animation: anim-glitch-show 3s infinite linear alternate;
@@ -324,8 +425,26 @@ input[type='submit']:active {
   display: block;
   animation: anim-glitch-hide 3s infinite linear alternate;
 }
+.glitch-rotate-titles {
+  animation: anim-glitch-rotate-titles 2s infinite linear alternate;
+}
+.menues-backbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  padding: 0.5em;
+  transition: 500ms;
+}
+.menues-backbar .hidden {
+  transform: translateY(-100%);
+}
 .social {
-  position: absolute;
   z-index: 9;
   top: 0.5em;
   left: 0.5em;
@@ -359,12 +478,6 @@ input[type='submit']:active {
 .skillcloud li:nth-child(n+2)::before {
   content: '/';
 }
-.main-menu {
-  position: fixed;
-  right: 0.5em;
-  top: 0.5em;
-  z-index: 9;
-}
 #mm-toggle {
   display: none;
 }
@@ -389,7 +502,7 @@ input[type='submit']:active {
   width: 2em;
   height: 2em;
   position: relative;
-  display: inline-block;
+  display: block;
   cursor: pointer;
 }
 .mm-btn {
@@ -475,6 +588,96 @@ input[type='submit']:active {
 .mm-selected:hover::before {
   display: none;
 }
+.btn-submit {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #000;
+  box-shadow: 1px 1px 2px #999;
+}
+.btn-submit input {
+  color: #fff;
+  background: #000;
+  padding: 0.5em;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+}
+.btn-submit::after,
+.btn-submit::before {
+  content: '';
+  background: #fff;
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform: skewX(-45deg);
+  opacity: 0.3;
+  transition: 1000ms;
+  pointer-events: none;
+}
+.btn-submit::before {
+  width: 1em;
+  left: 10em;
+}
+.btn-submit::after {
+  width: 0.5em;
+  left: 11.5em;
+}
+.btn-submit:hover::before {
+  left: 0em;
+}
+.btn-submit:hover::after {
+  left: 1.5em;
+}
+.btn {
+  color: #fff;
+  background: #000;
+  border: 3px solid #000;
+  padding: 0.5em;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+.btn::before,
+.btn::after {
+  content: '';
+  background: #fff;
+  display: block;
+  width: 1em;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0.5em;
+  transform: skewX(45deg);
+  opacity: 0.3;
+  transition: 500ms;
+}
+.btn::after {
+  width: 0.5em;
+  left: 2em;
+}
+.btn:hover::after {
+  left: 3.5em;
+}
+.btn:hover::before {
+  left: 2em;
+}
+.btn:active {
+  background: #008000;
+}
+.search-box {
+  background: url("../img/searchicon.png") no-repeat 0.3em center;
+  background-color: #fff;
+  padding-left: 1.5em;
+}
+.search-box::placeholder {
+  text-align: left;
+}
 /** ----------
 * $Keyframes
 */
@@ -486,31 +689,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 73%, 100% 73%, 100% 37%, 0 37%);
+    clip-path: polygon(0 68%, 100% 68%, 100% 73%, 0 73%);
   }
   92% {
-    clip-path: polygon(0 77%, 100% 77%, 100% 62%, 0 62%);
+    clip-path: polygon(0 86%, 100% 86%, 100% 69%, 0 69%);
   }
   93% {
-    clip-path: polygon(0 48%, 100% 48%, 100% 85%, 0 85%);
+    clip-path: polygon(0 8%, 100% 8%, 100% 36%, 0 36%);
   }
   94% {
-    clip-path: polygon(0 51%, 100% 51%, 100% 37%, 0 37%);
+    clip-path: polygon(0 8%, 100% 8%, 100% 82%, 0 82%);
   }
   95% {
-    clip-path: polygon(0 11%, 100% 11%, 100% 85%, 0 85%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 16%, 0 16%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 79%, 100% 79%, 100% 86%, 0 86%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 99%, 0 99%);
   }
   98% {
-    clip-path: polygon(0 57%, 100% 57%, 100% 84%, 0 84%);
+    clip-path: polygon(0 38%, 100% 38%, 100% 59%, 0 59%);
   }
   99% {
-    clip-path: polygon(0 1%, 100% 1%, 100% 16%, 0 16%);
+    clip-path: polygon(0 7%, 100% 7%, 100% 95%, 0 95%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -524,31 +727,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 73%, 100% 73%, 100% 37%, 0 37%);
+    clip-path: polygon(0 68%, 100% 68%, 100% 73%, 0 73%);
   }
   92% {
-    clip-path: polygon(0 77%, 100% 77%, 100% 62%, 0 62%);
+    clip-path: polygon(0 86%, 100% 86%, 100% 69%, 0 69%);
   }
   93% {
-    clip-path: polygon(0 48%, 100% 48%, 100% 85%, 0 85%);
+    clip-path: polygon(0 8%, 100% 8%, 100% 36%, 0 36%);
   }
   94% {
-    clip-path: polygon(0 51%, 100% 51%, 100% 37%, 0 37%);
+    clip-path: polygon(0 8%, 100% 8%, 100% 82%, 0 82%);
   }
   95% {
-    clip-path: polygon(0 11%, 100% 11%, 100% 85%, 0 85%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 16%, 0 16%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 79%, 100% 79%, 100% 86%, 0 86%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 99%, 0 99%);
   }
   98% {
-    clip-path: polygon(0 57%, 100% 57%, 100% 84%, 0 84%);
+    clip-path: polygon(0 38%, 100% 38%, 100% 59%, 0 59%);
   }
   99% {
-    clip-path: polygon(0 1%, 100% 1%, 100% 16%, 0 16%);
+    clip-path: polygon(0 7%, 100% 7%, 100% 95%, 0 95%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -562,31 +765,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 73%, 100% 73%, 100% 37%, 0 37%);
+    clip-path: polygon(0 68%, 100% 68%, 100% 73%, 0 73%);
   }
   92% {
-    clip-path: polygon(0 77%, 100% 77%, 100% 62%, 0 62%);
+    clip-path: polygon(0 86%, 100% 86%, 100% 69%, 0 69%);
   }
   93% {
-    clip-path: polygon(0 48%, 100% 48%, 100% 85%, 0 85%);
+    clip-path: polygon(0 8%, 100% 8%, 100% 36%, 0 36%);
   }
   94% {
-    clip-path: polygon(0 51%, 100% 51%, 100% 37%, 0 37%);
+    clip-path: polygon(0 8%, 100% 8%, 100% 82%, 0 82%);
   }
   95% {
-    clip-path: polygon(0 11%, 100% 11%, 100% 85%, 0 85%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 16%, 0 16%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 79%, 100% 79%, 100% 86%, 0 86%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 99%, 0 99%);
   }
   98% {
-    clip-path: polygon(0 57%, 100% 57%, 100% 84%, 0 84%);
+    clip-path: polygon(0 38%, 100% 38%, 100% 59%, 0 59%);
   }
   99% {
-    clip-path: polygon(0 1%, 100% 1%, 100% 16%, 0 16%);
+    clip-path: polygon(0 7%, 100% 7%, 100% 95%, 0 95%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -600,31 +803,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 73%, 100% 73%, 100% 37%, 0 37%);
+    clip-path: polygon(0 68%, 100% 68%, 100% 73%, 0 73%);
   }
   92% {
-    clip-path: polygon(0 77%, 100% 77%, 100% 62%, 0 62%);
+    clip-path: polygon(0 86%, 100% 86%, 100% 69%, 0 69%);
   }
   93% {
-    clip-path: polygon(0 48%, 100% 48%, 100% 85%, 0 85%);
+    clip-path: polygon(0 8%, 100% 8%, 100% 36%, 0 36%);
   }
   94% {
-    clip-path: polygon(0 51%, 100% 51%, 100% 37%, 0 37%);
+    clip-path: polygon(0 8%, 100% 8%, 100% 82%, 0 82%);
   }
   95% {
-    clip-path: polygon(0 11%, 100% 11%, 100% 85%, 0 85%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 16%, 0 16%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 79%, 100% 79%, 100% 86%, 0 86%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 99%, 0 99%);
   }
   98% {
-    clip-path: polygon(0 57%, 100% 57%, 100% 84%, 0 84%);
+    clip-path: polygon(0 38%, 100% 38%, 100% 59%, 0 59%);
   }
   99% {
-    clip-path: polygon(0 1%, 100% 1%, 100% 16%, 0 16%);
+    clip-path: polygon(0 7%, 100% 7%, 100% 95%, 0 95%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -638,31 +841,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 99%, 100% 99%, 100% 15%, 0 15%);
+    clip-path: polygon(0 80%, 100% 80%, 100% 71%, 0 71%);
   }
   92% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 12%, 0 12%);
+    clip-path: polygon(0 51%, 100% 51%, 100% 30%, 0 30%);
   }
   93% {
-    clip-path: polygon(0 65%, 100% 65%, 100% 89%, 0 89%);
+    clip-path: polygon(0 13%, 100% 13%, 100% 48%, 0 48%);
   }
   94% {
-    clip-path: polygon(0 24%, 100% 24%, 100% 40%, 0 40%);
+    clip-path: polygon(0 40%, 100% 40%, 100% 5%, 0 5%);
   }
   95% {
-    clip-path: polygon(0 36%, 100% 36%, 100% 63%, 0 63%);
+    clip-path: polygon(0 9%, 100% 9%, 100% 8%, 0 8%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 43%, 100% 43%, 100% 24%, 0 24%);
+    clip-path: polygon(0 56%, 100% 56%, 100% 81%, 0 81%);
   }
   98% {
-    clip-path: polygon(0 18%, 100% 18%, 100% 17%, 0 17%);
+    clip-path: polygon(0 93%, 100% 93%, 100% 100%, 0 100%);
   }
   99% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 32%, 0 32%);
+    clip-path: polygon(0 78%, 100% 78%, 100% 47%, 0 47%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -676,31 +879,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 99%, 100% 99%, 100% 15%, 0 15%);
+    clip-path: polygon(0 80%, 100% 80%, 100% 71%, 0 71%);
   }
   92% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 12%, 0 12%);
+    clip-path: polygon(0 51%, 100% 51%, 100% 30%, 0 30%);
   }
   93% {
-    clip-path: polygon(0 65%, 100% 65%, 100% 89%, 0 89%);
+    clip-path: polygon(0 13%, 100% 13%, 100% 48%, 0 48%);
   }
   94% {
-    clip-path: polygon(0 24%, 100% 24%, 100% 40%, 0 40%);
+    clip-path: polygon(0 40%, 100% 40%, 100% 5%, 0 5%);
   }
   95% {
-    clip-path: polygon(0 36%, 100% 36%, 100% 63%, 0 63%);
+    clip-path: polygon(0 9%, 100% 9%, 100% 8%, 0 8%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 43%, 100% 43%, 100% 24%, 0 24%);
+    clip-path: polygon(0 56%, 100% 56%, 100% 81%, 0 81%);
   }
   98% {
-    clip-path: polygon(0 18%, 100% 18%, 100% 17%, 0 17%);
+    clip-path: polygon(0 93%, 100% 93%, 100% 100%, 0 100%);
   }
   99% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 32%, 0 32%);
+    clip-path: polygon(0 78%, 100% 78%, 100% 47%, 0 47%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -714,31 +917,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 99%, 100% 99%, 100% 15%, 0 15%);
+    clip-path: polygon(0 80%, 100% 80%, 100% 71%, 0 71%);
   }
   92% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 12%, 0 12%);
+    clip-path: polygon(0 51%, 100% 51%, 100% 30%, 0 30%);
   }
   93% {
-    clip-path: polygon(0 65%, 100% 65%, 100% 89%, 0 89%);
+    clip-path: polygon(0 13%, 100% 13%, 100% 48%, 0 48%);
   }
   94% {
-    clip-path: polygon(0 24%, 100% 24%, 100% 40%, 0 40%);
+    clip-path: polygon(0 40%, 100% 40%, 100% 5%, 0 5%);
   }
   95% {
-    clip-path: polygon(0 36%, 100% 36%, 100% 63%, 0 63%);
+    clip-path: polygon(0 9%, 100% 9%, 100% 8%, 0 8%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 43%, 100% 43%, 100% 24%, 0 24%);
+    clip-path: polygon(0 56%, 100% 56%, 100% 81%, 0 81%);
   }
   98% {
-    clip-path: polygon(0 18%, 100% 18%, 100% 17%, 0 17%);
+    clip-path: polygon(0 93%, 100% 93%, 100% 100%, 0 100%);
   }
   99% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 32%, 0 32%);
+    clip-path: polygon(0 78%, 100% 78%, 100% 47%, 0 47%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -752,34 +955,254 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 99%, 100% 99%, 100% 15%, 0 15%);
+    clip-path: polygon(0 80%, 100% 80%, 100% 71%, 0 71%);
   }
   92% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 12%, 0 12%);
+    clip-path: polygon(0 51%, 100% 51%, 100% 30%, 0 30%);
   }
   93% {
-    clip-path: polygon(0 65%, 100% 65%, 100% 89%, 0 89%);
+    clip-path: polygon(0 13%, 100% 13%, 100% 48%, 0 48%);
   }
   94% {
-    clip-path: polygon(0 24%, 100% 24%, 100% 40%, 0 40%);
+    clip-path: polygon(0 40%, 100% 40%, 100% 5%, 0 5%);
   }
   95% {
-    clip-path: polygon(0 36%, 100% 36%, 100% 63%, 0 63%);
+    clip-path: polygon(0 9%, 100% 9%, 100% 8%, 0 8%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 43%, 100% 43%, 100% 24%, 0 24%);
+    clip-path: polygon(0 56%, 100% 56%, 100% 81%, 0 81%);
   }
   98% {
-    clip-path: polygon(0 18%, 100% 18%, 100% 17%, 0 17%);
+    clip-path: polygon(0 93%, 100% 93%, 100% 100%, 0 100%);
   }
   99% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 32%, 0 32%);
+    clip-path: polygon(0 78%, 100% 78%, 100% 47%, 0 47%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@-moz-keyframes anim-glitch-rotate-titles {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  91% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 80%, 0 80%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  92% {
+    clip-path: polygon(0 43%, 100% 43%, 100% 60%, 0 60%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  93% {
+    clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  94% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 70%, 0 70%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  95% {
+    clip-path: polygon(0 57%, 100% 57%, 100% 18%, 0 18%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(-1, -1, 1);
+    text-shadow: none;
+  }
+  97% {
+    clip-path: polygon(0 37%, 100% 37%, 100% 50%, 0 50%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  98% {
+    clip-path: polygon(0 75%, 100% 75%, 100% 39%, 0 39%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  99% {
+    clip-path: polygon(0 28%, 100% 28%, 100% 20%, 0 20%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(-1, -1, 1);
+    text-shadow: none;
+  }
+}
+@-webkit-keyframes anim-glitch-rotate-titles {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  91% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 80%, 0 80%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  92% {
+    clip-path: polygon(0 43%, 100% 43%, 100% 60%, 0 60%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  93% {
+    clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  94% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 70%, 0 70%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  95% {
+    clip-path: polygon(0 57%, 100% 57%, 100% 18%, 0 18%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(-1, -1, 1);
+    text-shadow: none;
+  }
+  97% {
+    clip-path: polygon(0 37%, 100% 37%, 100% 50%, 0 50%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  98% {
+    clip-path: polygon(0 75%, 100% 75%, 100% 39%, 0 39%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  99% {
+    clip-path: polygon(0 28%, 100% 28%, 100% 20%, 0 20%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(-1, -1, 1);
+    text-shadow: none;
+  }
+}
+@-o-keyframes anim-glitch-rotate-titles {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  91% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 80%, 0 80%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  92% {
+    clip-path: polygon(0 43%, 100% 43%, 100% 60%, 0 60%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  93% {
+    clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  94% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 70%, 0 70%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  95% {
+    clip-path: polygon(0 57%, 100% 57%, 100% 18%, 0 18%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(-1, -1, 1);
+    text-shadow: none;
+  }
+  97% {
+    clip-path: polygon(0 37%, 100% 37%, 100% 50%, 0 50%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  98% {
+    clip-path: polygon(0 75%, 100% 75%, 100% 39%, 0 39%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  99% {
+    clip-path: polygon(0 28%, 100% 28%, 100% 20%, 0 20%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(-1, -1, 1);
+    text-shadow: none;
+  }
+}
+@keyframes anim-glitch-rotate-titles {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  89% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  91% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 80%, 0 80%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  92% {
+    clip-path: polygon(0 43%, 100% 43%, 100% 60%, 0 60%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  93% {
+    clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  94% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 70%, 0 70%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  95% {
+    clip-path: polygon(0 57%, 100% 57%, 100% 18%, 0 18%);
+    transform: scale3d(1, 1, 1);
+    text-shadow: none;
+  }
+  96% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(-1, -1, 1);
+    text-shadow: none;
+  }
+  97% {
+    clip-path: polygon(0 37%, 100% 37%, 100% 50%, 0 50%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  98% {
+    clip-path: polygon(0 75%, 100% 75%, 100% 39%, 0 39%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  99% {
+    clip-path: polygon(0 28%, 100% 28%, 100% 20%, 0 20%);
+    text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale3d(-1, -1, 1);
+    text-shadow: none;
   }
 }
 @-moz-keyframes shining-moves {

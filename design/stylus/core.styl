@@ -26,6 +26,7 @@
   background-color black
   transform rotate(45deg)
   margin-top 2em
+  box-shadow 1px 1px 2px #999
 
 .logo
   position relative
@@ -42,6 +43,7 @@
   text-align center
   white-space nowrap
   margin-top 4em
+  box-shadow 1px 1px 2px #999
   .ver-name
     font-size 1.5em
     line-height 1em
@@ -72,15 +74,13 @@
       outline none
 
 .l-cuerpo
-  background-color #000
+  padding-top 1.5em
   width 100vw
   height 100vh
   font-family Ubuntu-Mono
   overflow-y auto
   overflow-x hidden
-  padding 1em
   margin auto
-  padding-top 2em
   transform skewX(20deg)
 
 .ShiningLines
@@ -115,17 +115,24 @@
   height 100vh
   transform skewX(-20deg)
   font-family Ubuntu-Mono
+  box-shadow -2px -2px 30px #bbb
 
 .c-section
   width 100%
+  padding 2em 1em 1em 1em
 
 .c-about
+  & .s-title-cont
+    float left
+    margin-top 4em
+    margin-right -100%
+    display inline-block
   & .s-title
     writing-mode vertical-lr
-    float left
-    margin-top 1em
-    margin-right -100%
     font-size 3em !important
+
+.abt-desc
+  font-size 1.125em
 
 .retrato
   width 15em
@@ -133,11 +140,96 @@
   margin auto
 
 .c-contact
-  background #fafafa
   color white
   width 100%
-  height 100%
-  border 1px solid #999
+  min-height 100%
   .s-title
     color black
     margin-bottom .5em
+
+.c-form
+  margin auto
+  width 80%
+
+.c-folio
+  & .s-title
+    text-align right
+    font-size 3em
+    padding-right 1em
+
+.fl-desc
+  line-height 1em
+  margin .5em 0 1em 0
+
+.fl-menu
+  display flex
+
+.fl-select
+  font-size 1.2em
+  padding .2em .5em
+  font-family Ubuntu-Mono
+  background white
+  border 3px solid #000
+  color #000
+  display block
+  margin auto
+  width 50%
+  & option
+    background #fafafa
+
+.fl-search
+  width 50%
+
+.fl-display
+  padding-top .5em
+
+.fl-ele
+  background #fafafa
+  display flex
+  padding .5em
+  margin-bottom .2em
+  & .ele-verb
+    padding-left .5em
+    width 100%
+    & .ele-title
+      color black
+      font-weight bold
+      text-align center
+    & .ele-desc
+      font-size 1em
+      text-align center
+      color black
+    & .ele-leng
+      font-size .7em
+      text-align right
+      display block
+      color #666
+      padding-right 1em
+      font-style italic
+
+.ele-t1
+  & img
+    width 6em
+    height 6em
+    background red
+.ele-t2
+.ele-t3
+  .ele-verb
+    width 100%
+ .ele-t3
+   & .ele-verb
+     display flex
+     line-height 1em
+     align-items center
+     padding 0
+     justify-content space-between
+     & .ele-title
+       background white
+       border-right 1px solid #999
+       text-align left
+       display inline-block
+       padding-right .5em
+     & .ele-desc
+       padding 0 .5em
+     & .ele-leng
+       padding 0

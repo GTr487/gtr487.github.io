@@ -41,6 +41,27 @@
       else if m == $max || m == $y
         {m}\% {clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)}
 
+@keyframes anim-glitch-rotate-titles
+    $min = 90
+    $max = 100
+    $x   = $min + 5
+    $y   = $min + 6
+    0% {clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); transform scale3d(1,1,1); text-shadow: none;}
+    {$min - 1}\% {clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); transform scale3d(1,1,1); text-shadow: none;}
+    for m in $min..$max
+      $a = random(0,100) * 1%
+      $b = random(0,100) * 1%
+      if m < $x && m > $min
+        {m}\% {clip-path: polygon(0 $a, 100% $a, 100% $b, 0 $b); text-shadow 1px 2px 0 #f00, -2px -2px 0 #0ff}
+      else if m == $x
+        {m}\% {clip-path: polygon(0 $a, 100% $a, 100% $b, 0 $b); transform scale3d(1,1,1); text-shadow: none;}
+      else if m > $y && m < $max
+        {m}\% {clip-path: polygon(0 $a, 100% $a, 100% $b, 0 $b); text-shadow 1px 2px 0 #f00, -2px -2px 0 #0ff}
+      else if m == $max || m == $y
+        {m}\% {clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); transform scale3d(-1,-1,1); text-shadow: none;}
+
+
+
 @keyframes shining-moves
     from {left: 150vw}
     to {left: -150vw}

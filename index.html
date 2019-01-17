@@ -18,19 +18,21 @@
 </html>
 <body>
   <div class="cont">
-    <section class="social"><a href="#linkedin"><i class="fab fa-linkedin-in"></i></a><a href="#github"><i class="fab fa-github"></i></a></section>
-    <div class="main-menu">
-      <input id="mm-toggle" type="checkbox">
-      <label for="mm-toggle" class="mm-hamburger"><span class="mm-btn"></span></label>
-      <nav class="mm-menu">
-        <ul>
-          <li><a id="mmHome" href="#" data-target="home" class="mm-selected">Home</a></li>
-          <li><a id="mmAbout" href="#" data-target="about">Sobre_mi</a></li>
-          <li><a id="mmFolio" href="#" data-target="folio">Folio</a></li>
-          <li><a id="mmBlog" href="#" disabled data-info="Proximamente">Blog</a></li>
-          <li><a id="mmContact" href="#" data-target="contact">Contactame</a></li>
-        </ul>
-      </nav>
+    <div class="menues-backbar">
+      <section class="social"><a href="#linkedin"><i class="fab fa-linkedin-in"></i></a><a href="#github"><i class="fab fa-github"></i></a></section>
+      <div class="main-menu">
+        <input id="mm-toggle" type="checkbox">
+        <label for="mm-toggle" class="mm-hamburger"><span class="mm-btn"></span></label>
+        <nav class="mm-menu">
+          <ul>
+            <li><a id="mmHome" href="#" data-target="home" class="mm-selected">Home</a></li>
+            <li><a id="mmAbout" href="#" data-target="about">Sobre_mi</a></li>
+            <li><a id="mmFolio" href="#" data-target="folio">Folio</a></li>
+            <li><a id="mmBlog" href="#" disabled data-info="Proximamente">Blog</a></li>
+            <li><a id="mmContact" href="#" data-target="contact">Contactame</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
     <header class="l-portada">
       <div class="ShiningLines"></div>
@@ -69,14 +71,16 @@
       <div class="verbose">
         <h1 class="ver-name"> GÜNTHER MOLINA</h1>
         <h2 class="ver-sub"> web_dev</h2>
-        <button id="vb-contact" class="contact">//CONTACTAR</button>
+        <button class="link-contact contact">//CONTACTAR</button>
       </div>
     </header>
     <div class="skw-cont">
       <main id="cuerpo" class="l-cuerpo">
         <div class="c-section c-about">
-          <h2 class="s-title">About me</h2><img src="./assets/img/Retrato.png" alt="Autoretraro" class="retrato">
-          <p>Occaecat amet nisi ut lorem ad amet dolore in, est, ea. Amet consequat occaecat enim labore excepteur, aliqua, ut incididunt occaecat, labore. Ipsum ut esse, dolore labore elit, culpa laboris dolore velit esse occaecat ad. Velit officia et, consectetur laborum exercitation, velit, aliquip pariatur, lorem cupidatat anim?</p>
+          <div class="s-title-cont">
+            <h2 class="s-title glitch-rotate-titles">About me</h2>
+          </div><img src="./assets/img/Retrato.png" alt="Autoretraro" class="retrato">
+          <p class="abt-desc">Hola! Soy Gunther Molina, estudiante de ingeniería Informática, con una gran pasión por la Computacion y la tecnología. Entre mis habilidades, están el diseño y desarrollo tanto front como back-end (PHP). Aunque actualmente me encuentro ahondando en Lenguajes de programación como Python y Java, y aprendiendo cada día mas sobre seguridad y redes. Te invito a explorar tanto mi portafolio como mi repositorio en Github, perfil de codeCamp y blog personal, y si te gustan mis trabajo o te gustaría conocerme un poco mas puedes contactarme por medio de este <a class='link-contact link'>link</a>.</p>
           <ul class="skillcloud">
             <li> Java</li>
             <li> Php</li>
@@ -85,11 +89,46 @@
           </ul>
         </div>
         <div class="c-section c-folio">
-          <h2>FOLIO</h2>
+          <h2 class="s-title glitch-rotate-titles">FOLIO</h2>
+          <p class="fl-desc">En esta sección podrás ver algunos de los trabajos, retos o ejercicios de programación y diseño que voy realizando. Eres libre de explorar estas tierras, y recuerda que en esta casa todo el feedback se recibe con gusto. </p>
+          <div class="fl-cont">
+            <div class="fl-menu">
+              <input type="text" placeholder="Buscar..." id="flSearch" class="search-box fl-search">
+              <select id="flSelect" class="fl-select">
+                <option value="" disabled selected> Filtrar por:</option>
+                <option value="cTodo">             Ver todo</option>
+                <option value="cTrabajo">         Trabajos</option>
+                <option value="cCodeCamp">            codeCamp</option>
+                <option value="cPractica">        Practicas</option>
+                <option value="cChalllenge">       code Challenges</option>
+                <option value="cVarios">           Varios</option>
+              </select>
+            </div>
+            <div id="flDisplay" class="fl-display">
+              <div data-categoria="cTrabajo" class="fl-ele ele-t1"><img src="assets/img/example.png" class="ele-img">
+                <div class="ele-verb">
+                  <h3 class="ele-title">Titulo elemento</h3>
+                  <p class="ele-desc">descripcion elemento</p><span class="ele-leng">lenguaje</span>
+                </div>
+              </div>
+              <div class="fl-ele ele-t2">
+                <div class="ele-verb">
+                  <h3 class="ele-title">cabecera</h3>
+                  <p class="ele-desc">descripcion elemento</p><span class="ele-leng">lenguaje</span>
+                </div>
+              </div>
+              <div class="fl-ele ele-t3">
+                <div class="ele-verb">
+                  <h3 class="ele-title">Titulo</h3>
+                  <p class="ele-desc">descripcion elemento</p><span class="ele-leng">lenguaje</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div style="display: none" class="c-section c-contact">
-          <form>
-            <h2 class="s-title">Contactame</h2>
+          <form class="c-form">
+            <h2 class="s-title glitch-rotate-titles">Contactame</h2>
             <div class="inp-cont"><i class="far fa-user icon"></i>
               <input type="text" placeholder="Nombre" pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+" title="Debes introducir un nombre valido" required>
             </div>
@@ -99,7 +138,9 @@
             <div class="inp-cont"><i class="far fa-comment icon"></i>
               <textarea placeholder="Mensaje" required></textarea>
             </div>
-            <input type="submit" value="Enviar">
+            <div class="btn-submit">
+              <input type="submit" value="Enviar">
+            </div>
           </form>
         </div>
       </main>

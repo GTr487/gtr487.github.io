@@ -19,6 +19,7 @@ form
   display inline-block
   position relative
   margin-bottom .5em
+  width 100%
   & .icon
     color #fff
     position absolute
@@ -33,6 +34,7 @@ form
   & input
   & textarea
     padding-left 1.7em
+    width 100%
   & textarea
     height 10.3em
     resize none
@@ -60,18 +62,12 @@ input
     &:focus
       color #000
   &[type='submit']
-    color #fff
-    background #000
-    font-family Ubuntu-Mono
-    text-transform uppercase
-    font-weight bold
     &:valid
       color white
-    &:hover
-      color #0ff
+    &:focus
+      outline none
     &:active
-      color #f00
-
+      background #05b5b5
 
 .g487
   fill white
@@ -105,3 +101,9 @@ input
   transform translate(6px, 2px)
   .trazo-Logo
     fill red !important
+
+.link
+  font-weight bold
+  text-shadow 0 0 1px #0ff
+  &:hover
+    text-shadow 1px 1px 0 #f00, -1px -1px 0 #0ff

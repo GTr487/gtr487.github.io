@@ -1,3 +1,35 @@
 //- include/folio.jade
 .c-section.c-folio
-  h2 FOLIO
+  h2.s-title.glitch-rotate-titles FOLIO
+  p.fl-desc En esta sección podrás ver algunos de los trabajos, retos o ejercicios de programación y diseño que voy realizando. Eres libre de explorar estas tierras, y recuerda que en esta casa todo el feedback se recibe con gusto. 
+  
+  .fl-cont
+    .fl-menu
+      input(type='text' placeholder='Buscar...')#flSearch.search-box.fl-search
+      select#flSelect.fl-select
+        option(value='' disabled selected)  Filtrar por:
+        option(value='cTodo')              Ver todo
+        option(value='cTrabajo')          Trabajos
+        option(value='cCodeCamp')             codeCamp
+        option(value='cPractica')         Practicas
+        option(value='cChalllenge')        code Challenges
+        option(value='cVarios')            Varios
+    .fl-display#flDisplay
+      .fl-ele.ele-t1(data-categoria='cTrabajo')
+        img(src='assets/img/example.png').ele-img
+        .ele-verb
+          h3.ele-title Titulo elemento
+          p.ele-desc descripcion elemento
+          span.ele-leng lenguaje
+
+      .fl-ele.ele-t2
+        .ele-verb
+          h3.ele-title cabecera
+          p.ele-desc descripcion elemento
+          span.ele-leng lenguaje
+          
+      .fl-ele.ele-t3
+        .ele-verb
+          h3.ele-title Titulo
+          p.ele-desc descripcion elemento
+          span.ele-leng lenguaje

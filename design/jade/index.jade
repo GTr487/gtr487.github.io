@@ -4,8 +4,9 @@ include includes/head.jade
 
 body
   .cont
-    include includes/social.jade
-    include includes/nav.jade
+    .menues-backbar
+      include includes/social.jade
+      include includes/nav.jade
     header.l-portada
       .ShiningLines
       .backlogo
@@ -19,7 +20,7 @@ body
       .verbose
         h1.ver-name  GÜNTHER MOLINA
         h2.ver-sub  web_dev
-        button#vb-contact.contact //CONTACTAR
+        button.link-contact.contact //CONTACTAR
           
     .skw-cont
       main.l-cuerpo#cuerpo

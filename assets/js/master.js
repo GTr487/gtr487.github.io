@@ -48,11 +48,13 @@ class ViewHandler {
     $('#mm-toggle').prop('checked', false)
 
     if (this.home && sec != 'home'){
+      this.paintBackground(sec);
       this.viewCuerpo();
       this.viewSection(sec);
     }else if(!this.home && sec == 'home'){
       this.viewHome();
     }else if (!this.home && sec != 'home') {
+      this.paintBackground(sec);
       this.viewSection(sec);
     }
   }
@@ -63,6 +65,7 @@ class ViewHandler {
     $('.skw-cont').animate({left:'150vw'},1500)
     $('.mm-selected').removeClass('mm-selected')
     $('#mmHome').addClass('mm-selected')
+    $('.menues-backbar').css('background', 'transparent')
   }
 
   viewCuerpo(){
@@ -70,6 +73,7 @@ class ViewHandler {
     $('.skw-cont').animate({left:'-50vw'},1500,function(){
       if($('l-cuerpo').css('display') == 'none')
         $('.l-cuerpo').fadeIn(1000);
+        $('.menues-backbar').css('background', '#000')
     })
   }
 
@@ -77,21 +81,93 @@ class ViewHandler {
     let newSection = '.c-' + sec;
     let newSectionId = '#mm' + sec.charAt(0).toUpperCase() + sec.slice(1);
     $('.c-section').hide();
-    $(newSection).show();
+    $(newSection).fadeIn(500);
 
     $('.mm-selected').removeClass('mm-selected')
     $(newSectionId).addClass('mm-selected')
     this.section = sec;
-
   }
 
+  paintBackground(sec){
+    if(sec == 'contact')
+      $('.skw-cont').css('background', '#fafafa')
+    else
+      $('.skw-cont').css('background', '#000')
+  }
+}
+
+//////////////////////
+
+class FolioHandler{
+  constructor(tabla, dir){
+    this.tabla = $(tabla);
+    this.dir   = dir;
+    this.json  = [];
+    // $(this.tabla).html('')
+  }
+
+  obtenerData(){
+    jQuery.getJSON(this.dir, function(data){
+      this.json = jQuery.parseJSON(data)
+    })
+  }
+
+  crearElemento(obj){
+    if(obj){
+      if(obj['img'])
+        var img = $('<img>',{src:obj['img']});
+
+      var h3   = $('<h3>',{class:'ele-title'}).html(obj['titulo']);
+      var p    = $('<p>',{class:'ele-desc'}).html(obj['desc']);
+      var span = $('<span>',{class:'ele-leng'}).html(obj['lenguaje']);
+      var verb = $('<div>',{class:'ele-verb'}).append(h3, p, span);
+      var elem = $('<a>',{href:obj['link'], class:'fl-ele ele-t' + obj['tier']}).attr('data-categoria', obj['categoria']);
+      if(img)
+        $(elem).append(img)
+      $(elem).append(verb)
+    }
+    return elem
+  }
+
+  cargarTabla(){
+    this.obtenerData();
+    var ele;
+    for(ele in this.json){
+      $(this.tabla).append(this.crearElemento(this.json[ele]));
+    }
+  }
+
+  buscarTabla(){
+    var search = $('#flSearch').val().toLowerCase()
+    $('.fl-ele').filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(search) > -1)
+    });
+  }
+
+  filtrarTabla(){
+    var search = $('#flSelect').val()
+
+    if((search != 'cTodo') && search){
+      $('.fl-ele').hide()
+      $('.fl-ele[data-categoria="' +search+ '"]').show()
+    }else if(search == 'cTodo'){
+      $('.fl-ele').show()
+    }else{
+      $('.fl-ele').hide()
+    }
+  }
 }
 
 //READY DOCUMENT SECTION
 
 $(document).ready(function(){
   var vHandler = new ViewHandler();
+  var fHandler = new FolioHandler('#flDisplay', 'https://gtr487.github.io/data/page/cv.json')
+
   console.log(logMess, styMessTitle, styMess, styMessFoot)
+  // fHandler.cargarTabla()
+  // fHandler.ordenartabla()
+
 
   $('.verbose').hide();
   $('.c-about').hide();
@@ -116,7 +192,19 @@ $(document).ready(function(){
     vHandler.view(section);
   })
 
-  $('#vb-contact').on('click', function(e){
+  $('.link-contact').on('click', function(e){
     vHandler.view('contact')
   })
+
+  $('#flSearch').keyup(function(e){
+    fHandler.buscarTabla()
+  })
+
+  $('#flSelect').change(function(e){
+    fHandler.filtrarTabla()
+  })
+
 });
+
+
+//FUNCTIONS

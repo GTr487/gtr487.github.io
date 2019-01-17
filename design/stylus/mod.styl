@@ -8,8 +8,23 @@
   display block
   animation anim-glitch-hide 3s infinite linear alternate
 
+.glitch-rotate-titles
+  animation anim-glitch-rotate-titles 2s infinite linear alternate
+
+.menues-backbar
+  position fixed
+  top 0
+  left 0
+  z-index 9
+  width 100%
+  display flex
+  justify-content space-between
+  align-items center
+  background transparent
+  padding .5em
+  transition 500ms
+
 .social
-  position absolute
   z-index 9
   top 0.5em
   left 0.5em
@@ -37,12 +52,6 @@
   &:nth-child(n+2)::before
     content '/'
 
-.main-menu
-  position fixed
-  right 0.5em
-  top 0.5em
-  z-index 9
-
 #mm-toggle
   display none
   &:checked ~ .mm-hamburger .mm-btn
@@ -63,7 +72,7 @@
   width 2em
   height 2em
   position relative
-  display inline-block
+  display block
   cursor pointer
 
 .mm-btn
@@ -137,3 +146,84 @@
   text-align right !important
   &:hover::before
     display none
+
+.btn-submit
+  display inline-block
+  position relative
+  overflow hidden
+  border 3px solid black
+  box-shadow 1px 1px 2px #999
+  & input
+    color white
+    background black
+    padding .5em
+    font-size 1.3em
+    text-transform uppercase
+    font-weight bold
+    border none
+  &::after
+  &::before
+    content ''
+    background white
+    display block
+    height 100%
+    position absolute
+    top 0
+    transform skewX(-45deg)
+    opacity 0.3
+    transition 1000ms
+    pointer-events none
+  &::before
+    width 1em
+    left 10em
+  &::after
+    width .5em
+    left 11.5em
+  &:hover
+    &::before
+      left 0em
+    &::after
+      left 1.5em
+
+
+.btn
+  color white
+  background black
+  border 3px solid black
+  padding .5em
+  font-size 1em
+  text-transform uppercase
+  font-weight bold
+  position relative
+  overflow hidden
+  display block
+  &::before
+  &::after
+    content ''
+    background white
+    display block
+    width 1em
+    height 100%
+    position absolute
+    top 0
+    left .5em
+    transform skewX(45deg)
+    opacity 0.3
+    transition 500ms
+  &::after
+    width .5em
+    left 2em
+  &:hover
+    &::after
+      left 3.5em
+    &::before
+      left 2em
+  &:active
+    background green
+
+.search-box
+  background url("../img/searchicon.png") no-repeat .3em center
+  background-color white
+  padding-left 1.5em
+  &::placeholder
+    text-align left

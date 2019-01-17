@@ -1,8 +1,8 @@
 //- include/contact.jade
 
 .c-section.c-contact(style='display: none')
-  form
-    h2.s-title Contactame
+  form.c-form
+    h2.s-title.glitch-rotate-titles Contactame
     .inp-cont
       i.far.fa-user.icon
       input(type="text" placeholder="Nombre" pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+" title='Debes introducir un nombre valido' required)
@@ -12,4 +12,5 @@
     .inp-cont
       i.far.fa-comment.icon
       textarea(placeholder="Mensaje" required)
-    input(type="submit" value="Enviar")
+    .btn-submit
+      input(type="submit" value="Enviar")
