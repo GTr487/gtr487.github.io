@@ -49,8 +49,12 @@
 
 .skillcloud li
   display inline-block
-  &:nth-child(n+2)::before
-    content '/'
+  &::before
+    content '< '
+    color white
+  &::after
+    content ' >'
+    color white
 
 #mm-toggle
   display none

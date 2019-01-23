@@ -13,8 +13,8 @@
 const emRobot= String.fromCodePoint(0x1F916)
 
 const logMess      = '%c' + emRobot + ' Hola!' +
-                     '\n%cBienvenido seas a mi pagina web personal, pasa y siéntete libre de explorar cada rincón. Que nada te impida contactar conmigo en caso de dudas o consultas, estoy a tu disposición. Muchas gracias por estar aquí y \nHappy Coding!' +
-                     '\n%c-Günther';
+                     '%cBienvenido seas a mi pagina web personal, pasa y siéntete libre de explorar cada rincón. Que nada te impida contactar conmigo en caso de dudas o consultas, estoy a tu disposición. Muchas gracias por estar aquí y Happy Coding!' +
+                     '%c-Günther';
 const styMessTitle = ['color: #fff',
                      'font-weight: bold',
                      'background: #000',
@@ -49,8 +49,8 @@ class ViewHandler {
 
     if (this.home && sec != 'home'){
       this.paintBackground(sec);
-      this.viewCuerpo();
-      this.viewSection(sec);
+      this.viewCuerpo(this, sec);
+      // this.viewSection(sec);
     }else if(!this.home && sec == 'home'){
       this.viewHome();
     }else if (!this.home && sec != 'home') {
@@ -62,18 +62,22 @@ class ViewHandler {
   viewHome(){
     this.home = true;
     this.section = 'home';
-    $('.skw-cont').animate({left:'150vw'},1500)
+    $('.c-section').fadeOut(500,function(){
+      $('.skw-cont').animate({left:'150vw'},1500)
+    });
     $('.mm-selected').removeClass('mm-selected')
     $('#mmHome').addClass('mm-selected')
     $('.menues-backbar').css('background', 'transparent')
   }
 
-  viewCuerpo(){
+  viewCuerpo(obj = false, sec=false){
     this.home = false;
     $('.skw-cont').animate({left:'-50vw'},1500,function(){
       if($('l-cuerpo').css('display') == 'none')
         $('.l-cuerpo').fadeIn(1000);
         $('.menues-backbar').css('background', '#000')
+        if(obj && sec)
+          obj.viewSection(sec)
     })
   }
 
@@ -92,7 +96,7 @@ class ViewHandler {
     if(sec == 'contact')
       $('.skw-cont').css('background', '#fafafa')
     else
-      $('.skw-cont').css('background', '#000')
+      $('.skw-cont').css('background', 'rgba(0, 0, 0, 0.2)')
   }
 }
 
@@ -170,7 +174,7 @@ $(document).ready(function(){
 
 
   $('.verbose').hide();
-  $('.c-about').hide();
+  $('.c-section').hide();
   logoWidth   = $('.backlogo').css('width')
   logoHeight  = $('.backlogo').css('height')
   $('.backlogo').hide()
