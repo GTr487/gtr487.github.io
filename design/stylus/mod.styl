@@ -1,4 +1,4 @@
-/** ----------
+/*!* ----------
 * $Modulos
 */
 .glitch-show
@@ -46,15 +46,6 @@
 .s-title
   font-size 2em
   line-height 1em
-
-.skillcloud li
-  display inline-block
-  &::before
-    content '< '
-    color white
-  &::after
-    content ' >'
-    color white
 
 #mm-toggle
   display none
@@ -132,6 +123,8 @@
       cursor not-allowed
       &:hover::before
         display none
+      &:active::before
+        display none
       &:active::after
         position absolute
         content attr(data-info)
@@ -143,6 +136,11 @@
         font-size .7em
         padding 0 .5em
 
+.grabado
+  text-shadow none
+
+.mm-hover-box
+  background transparent
 
 .mm-selected
   color #f00 !important
@@ -151,16 +149,20 @@
   &:hover::before
     display none
 
+.mm-selected-resp
+  text-shadow none
+
 .btn-submit
   display inline-block
   position relative
+  cursor pointer
   overflow hidden
-  border 3px solid black
   box-shadow 1px 1px 2px #999
   & input
     color white
     background black
     padding .5em
+    cursor pointer
     font-size 1.3em
     text-transform uppercase
     font-weight bold
@@ -168,6 +170,7 @@
   &::after
   &::before
     content ''
+    cursor pointer
     background white
     display block
     height 100%
@@ -192,6 +195,7 @@
 
 .btn
   color white
+  cursor pointer
   background black
   border 3px solid black
   padding .5em
@@ -231,3 +235,49 @@
   padding-left 1.5em
   &::placeholder
     text-align left
+
+.link-btn
+  display inline-block
+  position relative
+  overflow hidden
+  padding .5em
+  background #fafafa
+  color #222
+  margin-left 50%
+  margin-top 1em
+  margin-bottom 1em
+  text-align center
+  transform translateX(-50%)
+  font-weight bold
+  box-shadow 1px 1px 0 #ddd
+  border 1px 1px solid white
+  cursor pointer
+  user-select none
+  &::after
+  &::before
+    content ''
+    background white
+    display block
+    height 100%
+    position absolute
+    top 0
+    transform skewX(-45deg)
+    opacity 0.5
+    transition 1000ms
+    pointer-events none
+  &::before
+    width 1em
+    left 10em
+  &::after
+    width .5em
+    left 11.5em
+  &:hover
+    background #eee
+    &::before
+      left 0em
+    &::after
+      left 1.5em
+
+////
+.blog-prox
+  color #999

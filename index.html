@@ -19,17 +19,17 @@
 <body>
   <div class="cont">
     <div class="menues-backbar">
-      <section class="social"><a href="#linkedin"><i class="fab fa-linkedin-in"></i></a><a href="#github"><i class="fab fa-github"></i></a></section>
+      <section class="social"><a href="https://ar.linkedin.com/in/gunther-molina"><i class="fab fa-linkedin-in"></i></a><a href="https://github.com/GTr487"><i class="fab fa-github"></i></a></section>
       <div class="main-menu">
         <input id="mm-toggle" type="checkbox">
         <label for="mm-toggle" class="mm-hamburger"><span class="mm-btn"></span></label>
         <nav class="mm-menu">
           <ul>
-            <li><a id="mmHome" href="#" data-target="home" class="mm-selected">Home</a></li>
-            <li><a id="mmAbout" href="#" data-target="about">Sobre_mi</a></li>
-            <li><a id="mmFolio" href="#" data-target="folio">Folio</a></li>
-            <li><a id="mmBlog" href="#" disabled data-info="Proximamente">Blog</a></li>
-            <li><a id="mmContact" href="#" data-target="contact">Contactame</a></li>
+            <li><a id="mmHome" href="#" data-target="home" class="mm-selected grabado">Home</a></li>
+            <li><a id="mmAbout" href="#" data-target="about" class="grabado">Sobre_mi</a></li>
+            <li><a id="mmFolio" href="#" data-target="folio" class="grabado">Folio</a></li>
+            <li><a id="mmBlog" href="#" disabled data-info="Proximamente" class="grabado">Blog</a></li>
+            <li><a id="mmContact" href="#" data-target="contact" class="grabado">Contactame</a></li>
           </ul>
         </nav>
       </div>
@@ -81,48 +81,48 @@
             <h2 class="s-title glitch-rotate-titles">About me</h2>
           </div><img src="./assets/img/Retrato.png" alt="Autoretraro" class="retrato">
           <div class="abt-desc-cont">
-            <p class="abt-desc">Hola! Soy Gunther Molina, estudiante de ingeniería Informática, con una gran pasión por la Computacion y la tecnología. Entre mis habilidades, están el diseño y desarrollo tanto front como back-end (PHP). Aunque actualmente me encuentro ahondando en Lenguajes de programación como Python y Java, y aprendiendo cada día mas sobre seguridad y redes. Te invito a explorar tanto mi portafolio como mi repositorio en Github, perfil de codeCamp y blog personal, y si te gustan mis trabajo o te gustaría conocerme un poco mas puedes contactarme por medio de este <a class='link-contact link'>link</a>.</p>
-            <ul class="skillcloud">
-              <li> Python</li>
-              <li> Php</li>
-              <li> HTML5</li>
-              <li> JavaScript</li>
-            </ul>
+            <div class="abt-desc">
+              <p>Hola! Soy Gunther Molina,<br> Desarrollador y diseñador web. <br> Siento una gran pasión por la tecnología y la curiosidad me lleva a perfeccionar cada día mas mis conocimientos y habilidades en la informática.</p>
+              <hr>
+              <p>Te invito a explorar mis trabajos en:</p>
+              <ul class="link-list">
+                <li> <a href="https://github.com/GTr487">Github</a></li>
+                <li> <a href="#" id="viewPortafolio">Portafolio</a></li>
+                <li> <a href="https://www.freecodecamp.org/gtr487">FreeCodeCamp</a></li>
+              </ul>
+              <p class="blog-prox">Próximamente podrás leerme en mi blog.</p>
+              <hr>
+              <p>Si te gustan mis trabajo, te gustaría conocerme un poco mas o quieres trabajar conmigo, puedes escribirme! </p><a class="link-contact link-btn">CONTACTAR</a>
+              <p id="abt-freelance" class="abt-freelance">Actualmente me encuentro disponible para aceptar encargos freelance.</p>
+            </div>
           </div>
         </div>
         <div class="c-section c-folio">
-          <h2 class="s-title glitch-rotate-titles">FOLIO</h2>
-          <p class="fl-desc">En esta sección podrás ver algunos de los trabajos, retos o ejercicios de programación y diseño que voy realizando. Eres libre de explorar estas tierras, y recuerda que en esta casa todo el feedback se recibe con gusto. </p>
-          <div class="fl-cont">
+          <div class="fl-cab">
+            <h2 class="s-title glitch-rotate-titles">FOLIO</h2>
+            <p class="fl-desc">En esta sección podrás ver algunos de los trabajos, retos o ejercicios de programación y diseño que voy realizando. Eres libre de explorar estas tierras, y recuerda que en esta casa todo el feedback se recibe con gusto. </p>
             <div class="fl-menu">
               <input type="text" placeholder="Buscar..." id="flSearch" class="search-box fl-search">
               <select id="flSelect" class="fl-select">
                 <option value="" disabled selected> Filtrar por:</option>
-                <option value="cTodo">             Ver todo</option>
-                <option value="cTrabajo">         Trabajos</option>
-                <option value="cCodeCamp">            codeCamp</option>
-                <option value="cPractica">        Practicas</option>
-                <option value="cChalllenge">       code Challenges</option>
-                <option value="cVarios">           Varios</option>
+                <option value="todo">            Ver todo</option>
+                <option value="trabajo">         Trabajos</option>
+                <option value="codecamp">        FreeCodeCamp</option>
+                <option value="practica">        Practicas</option>
+                <option value="challenge">       Code Challenges</option>
+                <option value="varios">          Varios</option>
               </select>
             </div>
+          </div>
+          <div class="fl-cont">
             <div id="flDisplay" class="fl-display">
-              <div data-categoria="cTrabajo" class="fl-ele ele-t1"><img src="assets/img/example.png" class="ele-img">
+              <div data-categoria="varios" class="fl-ele ele-t1">
                 <div class="ele-verb">
-                  <h3 class="ele-title">Titulo elemento</h3>
-                  <p class="ele-desc">descripcion elemento</p><span class="ele-leng">lenguaje</span>
-                </div>
-              </div>
-              <div class="fl-ele ele-t2">
-                <div class="ele-verb">
-                  <h3 class="ele-title">cabecera</h3>
-                  <p class="ele-desc">descripcion elemento</p><span class="ele-leng">lenguaje</span>
-                </div>
-              </div>
-              <div class="fl-ele ele-t3">
-                <div class="ele-verb">
-                  <h3 class="ele-title">Titulo</h3>
-                  <p class="ele-desc">descripcion elemento</p><span class="ele-leng">lenguaje</span>
+                  <div class="ele-cab"><i class="fas fa-code ele-icon"></i>
+                    <h3 class="ele-title">Elemento de Ejemplo</h3>
+                  </div>
+                  <p class="ele-desc">Si estas viendo este elemento, posiblemente no se cargaron bien los recursos</p>
+                  <p class="ele-leng"> <span class="ele-leng-color"></span><span class="ele-leng-name">lenguaje</span></p>
                 </div>
               </div>
             </div>

@@ -61,6 +61,12 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid #222;
+  margin: 1.5em;
+}
 form {
   text-align: center;
 }
@@ -118,6 +124,9 @@ input:valid {
 input:valid:focus {
   color: #000;
 }
+input[type='submit'] {
+  cursor: pointer;
+}
 input[type='submit']:valid {
   color: #fff;
 }
@@ -161,13 +170,6 @@ input[type='submit']:active {
 }
 .logoRojo .trazo-Logo {
   fill: #f00 !important;
-}
-.link {
-  font-weight: bold;
-  text-shadow: 0 0 1px #0ff;
-}
-.link:hover {
-  text-shadow: 1px 1px 0 #f00, -1px -1px 0 #0ff;
 }
 /** ----------
 * $Core
@@ -248,7 +250,6 @@ input[type='submit']:active {
   outline: none;
 }
 .l-cuerpo {
-  padding-top: 1.5em;
   width: 100vw;
   height: 100vh;
   font-family: Ubuntu-Mono;
@@ -296,7 +297,10 @@ input[type='submit']:active {
 }
 .c-section {
   width: 100%;
-  padding: 2em 1em 1em 1em;
+  padding: 3.5em 1em 1em 1em;
+}
+.c-about {
+  padding-top: 5.5em;
 }
 .c-about .s-title-cont {
   float: left;
@@ -305,24 +309,83 @@ input[type='submit']:active {
   display: inline-block;
   width: 3em;
   height: 13em;
+  padding: 0.5em 0;
+  background: #000;
 }
 .c-about .s-title {
   writing-mode: vertical-lr;
   font-size: 3em !important;
   width: 100%;
+  text-transform: uppercase;
 }
 .abt-desc-cont {
   background: #000;
   position: absolute;
   left: 0;
+  width: 100%;
   transform: skewY(-12deg);
   z-index: -1;
   margin-top: -4em;
-  padding: 5em 1em 1em 1em;
+  padding-top: 5em;
+  padding-bottom: 2em;
 }
 .abt-desc {
   font-size: 1.125em;
   transform: skewY(12deg);
+  padding: 0 1em;
+  max-width: 39em;
+  margin: auto;
+}
+.abt-desc p {
+  text-align: center;
+}
+.link-list {
+  padding-right: 0.5em;
+  margin: 0.5em 0 1em 0;
+}
+.link-list a {
+  text-align: center;
+  display: block;
+  margin: auto;
+  width: 7em;
+  position: relative;
+  color: #0ff;
+}
+.link-list a::before,
+.link-list a::after {
+  transition: 500ms;
+  opacity: 0;
+  position: absolute;
+}
+.link-list a::before {
+  left: 1em;
+  content: '[';
+}
+.link-list a::after {
+  right: 1em;
+  content: ']';
+}
+.link-list a:hover {
+  color: #000;
+  background: #fff;
+}
+.link-list a:hover::before,
+.link-list a:hover::after {
+  color: #000;
+  opacity: 1;
+}
+.link-list a:hover::before {
+  transform: translateX(-1em);
+}
+.link-list a:hover::after {
+  transform: translateX(1em);
+}
+.abt-freelance {
+  font-size: 1.1em;
+  color: #adff2f;
+  margin: auto;
+  margin-bottom: 1.5em;
+  max-width: 20em;
 }
 .retrato {
   width: 15em;
@@ -341,11 +404,24 @@ input[type='submit']:active {
 .c-form {
   margin: auto;
   width: 80%;
+  max-width: 30em;
+}
+.c-folio {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  height: 100vh;
+  background: #eee;
 }
 .c-folio .s-title {
   text-align: right;
   font-size: 3em;
   padding-right: 1em;
+}
+.fl-cab {
+  background: #000;
+  padding: 1em;
+  margin-top: -0.5em;
 }
 .fl-desc {
   line-height: 1em;
@@ -371,66 +447,82 @@ input[type='submit']:active {
 .fl-search {
   width: 50%;
 }
-.fl-display {
-  padding-top: 0.5em;
-}
 .fl-ele {
   background: #fafafa;
   display: flex;
   padding: 0.5em;
-  margin-bottom: 0.2em;
+  border-bottom: 1px solid #999;
+  position: relative;
+  height: 7em;
 }
 .fl-ele .ele-verb {
   padding-left: 0.5em;
   width: 100%;
+  overflow: hidden;
 }
-.fl-ele .ele-verb .ele-title {
-  color: #000;
-  font-weight: bold;
-  text-align: center;
+.fl-ele .ele-verb .ele-cab {
+  display: inline;
+  line-height: 1em;
+}
+.fl-ele .ele-verb .ele-cab .ele-icon {
+  color: #586069;
+  display: inline-block;
+  vertical-align: middle;
+}
+.fl-ele .ele-verb .ele-cab .ele-title {
+  display: inline-block;
+  vertical-align: middle;
+  color: #8b0000;
+  font-size: 1.1em;
+  padding-left: 0.6em;
+  text-transform: capitalize;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .fl-ele .ele-verb .ele-desc {
-  font-size: 1em;
-  text-align: center;
-  color: #000;
+  font-size: 0.9em;
+  line-height: 1em;
+  padding-left: 1.5em;
+  margin-top: 0.1em;
+  color: #586069;
+  max-width: 90%;
+  max-height: 3em;
+  overflow: hidden;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
 }
 .fl-ele .ele-verb .ele-leng {
-  font-size: 0.7em;
-  text-align: right;
-  display: block;
-  color: #666;
-  padding-right: 1em;
-  font-style: italic;
+  padding-left: 2em;
+  font-size: 0.8em;
+  line-height: 1em;
+  position: absolute;
+  bottom: 1em;
+}
+.fl-ele .ele-verb .ele-leng .ele-leng-color {
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.3em;
+  width: 1em;
+  height: 1em;
+  background: #f00;
+}
+.fl-ele .ele-verb .ele-leng .ele-leng-name {
+  color: #586069;
+  display: inline-block;
 }
 .ele-t1 img {
   width: 6em;
   height: 6em;
   background: #f00;
 }
-.ele-t2 .ele-verb,
-.ele-t3 .ele-verb {
+.ele-t2 .ele-verb {
   width: 100%;
 }
-.ele-t3 .ele-verb {
-  display: flex;
-  line-height: 1em;
-  align-items: center;
-  padding: 0;
-  justify-content: space-between;
-}
-.ele-t3 .ele-verb .ele-title {
-  background: #fff;
-  border-right: 1px solid #999;
-  text-align: left;
-  display: inline-block;
-  padding-right: 0.5em;
-}
-.ele-t3 .ele-verb .ele-desc {
-  padding: 0 0.5em;
-}
-.ele-t3 .ele-verb .ele-leng {
-  padding: 0;
-}
+/** ----------
+* $Modulos
+*/
 .glitch-show {
   animation: anim-glitch-show 3s infinite linear alternate;
 }
@@ -481,17 +573,6 @@ input[type='submit']:active {
 .s-title {
   font-size: 2em;
   line-height: 1em;
-}
-.skillcloud li {
-  display: inline-block;
-}
-.skillcloud li::before {
-  content: '< ';
-  color: #fff;
-}
-.skillcloud li::after {
-  content: ' >';
-  color: #fff;
 }
 #mm-toggle {
   display: none;
@@ -584,6 +665,9 @@ input[type='submit']:active {
 .mm-menu a[disabled]:hover::before {
   display: none;
 }
+.mm-menu a[disabled]:active::before {
+  display: none;
+}
 .mm-menu a[disabled]:active::after {
   position: absolute;
   content: attr(data-info);
@@ -595,6 +679,12 @@ input[type='submit']:active {
   font-size: 0.7em;
   padding: 0 0.5em;
 }
+.grabado {
+  text-shadow: none;
+}
+.mm-hover-box {
+  background: transparent;
+}
 .mm-selected {
   color: #f00 !important;
   transform: rotate(180deg);
@@ -603,17 +693,21 @@ input[type='submit']:active {
 .mm-selected:hover::before {
   display: none;
 }
+.mm-selected-resp {
+  text-shadow: none;
+}
 .btn-submit {
   display: inline-block;
   position: relative;
+  cursor: pointer;
   overflow: hidden;
-  border: 3px solid #000;
   box-shadow: 1px 1px 2px #999;
 }
 .btn-submit input {
   color: #fff;
   background: #000;
   padding: 0.5em;
+  cursor: pointer;
   font-size: 1.3em;
   text-transform: uppercase;
   font-weight: bold;
@@ -622,6 +716,7 @@ input[type='submit']:active {
 .btn-submit::after,
 .btn-submit::before {
   content: '';
+  cursor: pointer;
   background: #fff;
   display: block;
   height: 100%;
@@ -648,6 +743,7 @@ input[type='submit']:active {
 }
 .btn {
   color: #fff;
+  cursor: pointer;
   background: #000;
   border: 3px solid #000;
   padding: 0.5em;
@@ -693,6 +789,57 @@ input[type='submit']:active {
 .search-box::placeholder {
   text-align: left;
 }
+.link-btn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding: 0.5em;
+  background: #fafafa;
+  color: #222;
+  margin-left: 50%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  transform: translateX(-50%);
+  font-weight: bold;
+  box-shadow: 1px 1px 0 #ddd;
+  border: 1px 1px solid #fff;
+  cursor: pointer;
+  user-select: none;
+}
+.link-btn::after,
+.link-btn::before {
+  content: '';
+  background: #fff;
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform: skewX(-45deg);
+  opacity: 0.5;
+  transition: 1000ms;
+  pointer-events: none;
+}
+.link-btn::before {
+  width: 1em;
+  left: 10em;
+}
+.link-btn::after {
+  width: 0.5em;
+  left: 11.5em;
+}
+.link-btn:hover {
+  background: #eee;
+}
+.link-btn:hover::before {
+  left: 0em;
+}
+.link-btn:hover::after {
+  left: 1.5em;
+}
+.blog-prox {
+  color: #999;
+}
 /** ----------
 * $Keyframes
 */
@@ -704,31 +851,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 45%, 100% 45%, 100% 87%, 0 87%);
+    clip-path: polygon(0 37%, 100% 37%, 100% 48%, 0 48%);
   }
   92% {
-    clip-path: polygon(0 24%, 100% 24%, 100% 75%, 0 75%);
+    clip-path: polygon(0 16%, 100% 16%, 100% 71%, 0 71%);
   }
   93% {
-    clip-path: polygon(0 78%, 100% 78%, 100% 27%, 0 27%);
+    clip-path: polygon(0 61%, 100% 61%, 100% 83%, 0 83%);
   }
   94% {
-    clip-path: polygon(0 6%, 100% 6%, 100% 20%, 0 20%);
+    clip-path: polygon(0 23%, 100% 23%, 100% 6%, 0 6%);
   }
   95% {
-    clip-path: polygon(0 98%, 100% 98%, 100% 72%, 0 72%);
+    clip-path: polygon(0 74%, 100% 74%, 100% 94%, 0 94%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 59%, 100% 59%, 100% 23%, 0 23%);
+    clip-path: polygon(0 32%, 100% 32%, 100% 98%, 0 98%);
   }
   98% {
-    clip-path: polygon(0 97%, 100% 97%, 100% 48%, 0 48%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 14%, 0 14%);
   }
   99% {
-    clip-path: polygon(0 27%, 100% 27%, 100% 53%, 0 53%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 99%, 0 99%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -742,31 +889,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 45%, 100% 45%, 100% 87%, 0 87%);
+    clip-path: polygon(0 37%, 100% 37%, 100% 48%, 0 48%);
   }
   92% {
-    clip-path: polygon(0 24%, 100% 24%, 100% 75%, 0 75%);
+    clip-path: polygon(0 16%, 100% 16%, 100% 71%, 0 71%);
   }
   93% {
-    clip-path: polygon(0 78%, 100% 78%, 100% 27%, 0 27%);
+    clip-path: polygon(0 61%, 100% 61%, 100% 83%, 0 83%);
   }
   94% {
-    clip-path: polygon(0 6%, 100% 6%, 100% 20%, 0 20%);
+    clip-path: polygon(0 23%, 100% 23%, 100% 6%, 0 6%);
   }
   95% {
-    clip-path: polygon(0 98%, 100% 98%, 100% 72%, 0 72%);
+    clip-path: polygon(0 74%, 100% 74%, 100% 94%, 0 94%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 59%, 100% 59%, 100% 23%, 0 23%);
+    clip-path: polygon(0 32%, 100% 32%, 100% 98%, 0 98%);
   }
   98% {
-    clip-path: polygon(0 97%, 100% 97%, 100% 48%, 0 48%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 14%, 0 14%);
   }
   99% {
-    clip-path: polygon(0 27%, 100% 27%, 100% 53%, 0 53%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 99%, 0 99%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -780,31 +927,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 45%, 100% 45%, 100% 87%, 0 87%);
+    clip-path: polygon(0 37%, 100% 37%, 100% 48%, 0 48%);
   }
   92% {
-    clip-path: polygon(0 24%, 100% 24%, 100% 75%, 0 75%);
+    clip-path: polygon(0 16%, 100% 16%, 100% 71%, 0 71%);
   }
   93% {
-    clip-path: polygon(0 78%, 100% 78%, 100% 27%, 0 27%);
+    clip-path: polygon(0 61%, 100% 61%, 100% 83%, 0 83%);
   }
   94% {
-    clip-path: polygon(0 6%, 100% 6%, 100% 20%, 0 20%);
+    clip-path: polygon(0 23%, 100% 23%, 100% 6%, 0 6%);
   }
   95% {
-    clip-path: polygon(0 98%, 100% 98%, 100% 72%, 0 72%);
+    clip-path: polygon(0 74%, 100% 74%, 100% 94%, 0 94%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 59%, 100% 59%, 100% 23%, 0 23%);
+    clip-path: polygon(0 32%, 100% 32%, 100% 98%, 0 98%);
   }
   98% {
-    clip-path: polygon(0 97%, 100% 97%, 100% 48%, 0 48%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 14%, 0 14%);
   }
   99% {
-    clip-path: polygon(0 27%, 100% 27%, 100% 53%, 0 53%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 99%, 0 99%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -818,31 +965,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 45%, 100% 45%, 100% 87%, 0 87%);
+    clip-path: polygon(0 37%, 100% 37%, 100% 48%, 0 48%);
   }
   92% {
-    clip-path: polygon(0 24%, 100% 24%, 100% 75%, 0 75%);
+    clip-path: polygon(0 16%, 100% 16%, 100% 71%, 0 71%);
   }
   93% {
-    clip-path: polygon(0 78%, 100% 78%, 100% 27%, 0 27%);
+    clip-path: polygon(0 61%, 100% 61%, 100% 83%, 0 83%);
   }
   94% {
-    clip-path: polygon(0 6%, 100% 6%, 100% 20%, 0 20%);
+    clip-path: polygon(0 23%, 100% 23%, 100% 6%, 0 6%);
   }
   95% {
-    clip-path: polygon(0 98%, 100% 98%, 100% 72%, 0 72%);
+    clip-path: polygon(0 74%, 100% 74%, 100% 94%, 0 94%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 59%, 100% 59%, 100% 23%, 0 23%);
+    clip-path: polygon(0 32%, 100% 32%, 100% 98%, 0 98%);
   }
   98% {
-    clip-path: polygon(0 97%, 100% 97%, 100% 48%, 0 48%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 14%, 0 14%);
   }
   99% {
-    clip-path: polygon(0 27%, 100% 27%, 100% 53%, 0 53%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 99%, 0 99%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -856,31 +1003,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 14%, 100% 14%, 100% 20%, 0 20%);
+    clip-path: polygon(0 12%, 100% 12%, 100% 79%, 0 79%);
   }
   92% {
-    clip-path: polygon(0 21%, 100% 21%, 100% 68%, 0 68%);
+    clip-path: polygon(0 58%, 100% 58%, 100% 37%, 0 37%);
   }
   93% {
-    clip-path: polygon(0 0%, 100% 0%, 100% 58%, 0 58%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%);
   }
   94% {
-    clip-path: polygon(0 38%, 100% 38%, 100% 32%, 0 32%);
+    clip-path: polygon(0 44%, 100% 44%, 100% 91%, 0 91%);
   }
   95% {
-    clip-path: polygon(0 98%, 100% 98%, 100% 93%, 0 93%);
+    clip-path: polygon(0 83%, 100% 83%, 100% 65%, 0 65%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 26%, 100% 26%, 100% 30%, 0 30%);
+    clip-path: polygon(0 46%, 100% 46%, 100% 40%, 0 40%);
   }
   98% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 7%, 0 7%);
+    clip-path: polygon(0 96%, 100% 96%, 100% 25%, 0 25%);
   }
   99% {
-    clip-path: polygon(0 38%, 100% 38%, 100% 18%, 0 18%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 82%, 0 82%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -894,31 +1041,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 14%, 100% 14%, 100% 20%, 0 20%);
+    clip-path: polygon(0 12%, 100% 12%, 100% 79%, 0 79%);
   }
   92% {
-    clip-path: polygon(0 21%, 100% 21%, 100% 68%, 0 68%);
+    clip-path: polygon(0 58%, 100% 58%, 100% 37%, 0 37%);
   }
   93% {
-    clip-path: polygon(0 0%, 100% 0%, 100% 58%, 0 58%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%);
   }
   94% {
-    clip-path: polygon(0 38%, 100% 38%, 100% 32%, 0 32%);
+    clip-path: polygon(0 44%, 100% 44%, 100% 91%, 0 91%);
   }
   95% {
-    clip-path: polygon(0 98%, 100% 98%, 100% 93%, 0 93%);
+    clip-path: polygon(0 83%, 100% 83%, 100% 65%, 0 65%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 26%, 100% 26%, 100% 30%, 0 30%);
+    clip-path: polygon(0 46%, 100% 46%, 100% 40%, 0 40%);
   }
   98% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 7%, 0 7%);
+    clip-path: polygon(0 96%, 100% 96%, 100% 25%, 0 25%);
   }
   99% {
-    clip-path: polygon(0 38%, 100% 38%, 100% 18%, 0 18%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 82%, 0 82%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -932,31 +1079,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 14%, 100% 14%, 100% 20%, 0 20%);
+    clip-path: polygon(0 12%, 100% 12%, 100% 79%, 0 79%);
   }
   92% {
-    clip-path: polygon(0 21%, 100% 21%, 100% 68%, 0 68%);
+    clip-path: polygon(0 58%, 100% 58%, 100% 37%, 0 37%);
   }
   93% {
-    clip-path: polygon(0 0%, 100% 0%, 100% 58%, 0 58%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%);
   }
   94% {
-    clip-path: polygon(0 38%, 100% 38%, 100% 32%, 0 32%);
+    clip-path: polygon(0 44%, 100% 44%, 100% 91%, 0 91%);
   }
   95% {
-    clip-path: polygon(0 98%, 100% 98%, 100% 93%, 0 93%);
+    clip-path: polygon(0 83%, 100% 83%, 100% 65%, 0 65%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 26%, 100% 26%, 100% 30%, 0 30%);
+    clip-path: polygon(0 46%, 100% 46%, 100% 40%, 0 40%);
   }
   98% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 7%, 0 7%);
+    clip-path: polygon(0 96%, 100% 96%, 100% 25%, 0 25%);
   }
   99% {
-    clip-path: polygon(0 38%, 100% 38%, 100% 18%, 0 18%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 82%, 0 82%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -970,31 +1117,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 14%, 100% 14%, 100% 20%, 0 20%);
+    clip-path: polygon(0 12%, 100% 12%, 100% 79%, 0 79%);
   }
   92% {
-    clip-path: polygon(0 21%, 100% 21%, 100% 68%, 0 68%);
+    clip-path: polygon(0 58%, 100% 58%, 100% 37%, 0 37%);
   }
   93% {
-    clip-path: polygon(0 0%, 100% 0%, 100% 58%, 0 58%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%);
   }
   94% {
-    clip-path: polygon(0 38%, 100% 38%, 100% 32%, 0 32%);
+    clip-path: polygon(0 44%, 100% 44%, 100% 91%, 0 91%);
   }
   95% {
-    clip-path: polygon(0 98%, 100% 98%, 100% 93%, 0 93%);
+    clip-path: polygon(0 83%, 100% 83%, 100% 65%, 0 65%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 26%, 100% 26%, 100% 30%, 0 30%);
+    clip-path: polygon(0 46%, 100% 46%, 100% 40%, 0 40%);
   }
   98% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 7%, 0 7%);
+    clip-path: polygon(0 96%, 100% 96%, 100% 25%, 0 25%);
   }
   99% {
-    clip-path: polygon(0 38%, 100% 38%, 100% 18%, 0 18%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 82%, 0 82%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -1012,23 +1159,23 @@ input[type='submit']:active {
     text-shadow: none;
   }
   91% {
-    clip-path: polygon(0 47%, 100% 47%, 100% 4%, 0 4%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 3%, 0 3%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   92% {
-    clip-path: polygon(0 49%, 100% 49%, 100% 57%, 0 57%);
+    clip-path: polygon(0 52%, 100% 52%, 100% 50%, 0 50%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   93% {
-    clip-path: polygon(0 8%, 100% 8%, 100% 3%, 0 3%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 28%, 0 28%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   94% {
-    clip-path: polygon(0 6%, 100% 6%, 100% 10%, 0 10%);
+    clip-path: polygon(0 61%, 100% 61%, 100% 93%, 0 93%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   95% {
-    clip-path: polygon(0 63%, 100% 63%, 100% 79%, 0 79%);
+    clip-path: polygon(0 63%, 100% 63%, 100% 10%, 0 10%);
     transform: scale3d(1, 1, 1);
     text-shadow: none;
   }
@@ -1038,15 +1185,15 @@ input[type='submit']:active {
     text-shadow: none;
   }
   97% {
-    clip-path: polygon(0 34%, 100% 34%, 100% 4%, 0 4%);
+    clip-path: polygon(0 55%, 100% 55%, 100% 49%, 0 49%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   98% {
-    clip-path: polygon(0 68%, 100% 68%, 100% 81%, 0 81%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 19%, 0 19%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   99% {
-    clip-path: polygon(0 50%, 100% 50%, 100% 65%, 0 65%);
+    clip-path: polygon(0 69%, 100% 69%, 100% 20%, 0 20%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   100% {
@@ -1067,23 +1214,23 @@ input[type='submit']:active {
     text-shadow: none;
   }
   91% {
-    clip-path: polygon(0 47%, 100% 47%, 100% 4%, 0 4%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 3%, 0 3%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   92% {
-    clip-path: polygon(0 49%, 100% 49%, 100% 57%, 0 57%);
+    clip-path: polygon(0 52%, 100% 52%, 100% 50%, 0 50%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   93% {
-    clip-path: polygon(0 8%, 100% 8%, 100% 3%, 0 3%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 28%, 0 28%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   94% {
-    clip-path: polygon(0 6%, 100% 6%, 100% 10%, 0 10%);
+    clip-path: polygon(0 61%, 100% 61%, 100% 93%, 0 93%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   95% {
-    clip-path: polygon(0 63%, 100% 63%, 100% 79%, 0 79%);
+    clip-path: polygon(0 63%, 100% 63%, 100% 10%, 0 10%);
     transform: scale3d(1, 1, 1);
     text-shadow: none;
   }
@@ -1093,15 +1240,15 @@ input[type='submit']:active {
     text-shadow: none;
   }
   97% {
-    clip-path: polygon(0 34%, 100% 34%, 100% 4%, 0 4%);
+    clip-path: polygon(0 55%, 100% 55%, 100% 49%, 0 49%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   98% {
-    clip-path: polygon(0 68%, 100% 68%, 100% 81%, 0 81%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 19%, 0 19%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   99% {
-    clip-path: polygon(0 50%, 100% 50%, 100% 65%, 0 65%);
+    clip-path: polygon(0 69%, 100% 69%, 100% 20%, 0 20%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   100% {
@@ -1122,23 +1269,23 @@ input[type='submit']:active {
     text-shadow: none;
   }
   91% {
-    clip-path: polygon(0 47%, 100% 47%, 100% 4%, 0 4%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 3%, 0 3%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   92% {
-    clip-path: polygon(0 49%, 100% 49%, 100% 57%, 0 57%);
+    clip-path: polygon(0 52%, 100% 52%, 100% 50%, 0 50%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   93% {
-    clip-path: polygon(0 8%, 100% 8%, 100% 3%, 0 3%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 28%, 0 28%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   94% {
-    clip-path: polygon(0 6%, 100% 6%, 100% 10%, 0 10%);
+    clip-path: polygon(0 61%, 100% 61%, 100% 93%, 0 93%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   95% {
-    clip-path: polygon(0 63%, 100% 63%, 100% 79%, 0 79%);
+    clip-path: polygon(0 63%, 100% 63%, 100% 10%, 0 10%);
     transform: scale3d(1, 1, 1);
     text-shadow: none;
   }
@@ -1148,15 +1295,15 @@ input[type='submit']:active {
     text-shadow: none;
   }
   97% {
-    clip-path: polygon(0 34%, 100% 34%, 100% 4%, 0 4%);
+    clip-path: polygon(0 55%, 100% 55%, 100% 49%, 0 49%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   98% {
-    clip-path: polygon(0 68%, 100% 68%, 100% 81%, 0 81%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 19%, 0 19%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   99% {
-    clip-path: polygon(0 50%, 100% 50%, 100% 65%, 0 65%);
+    clip-path: polygon(0 69%, 100% 69%, 100% 20%, 0 20%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   100% {
@@ -1177,23 +1324,23 @@ input[type='submit']:active {
     text-shadow: none;
   }
   91% {
-    clip-path: polygon(0 47%, 100% 47%, 100% 4%, 0 4%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 3%, 0 3%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   92% {
-    clip-path: polygon(0 49%, 100% 49%, 100% 57%, 0 57%);
+    clip-path: polygon(0 52%, 100% 52%, 100% 50%, 0 50%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   93% {
-    clip-path: polygon(0 8%, 100% 8%, 100% 3%, 0 3%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 28%, 0 28%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   94% {
-    clip-path: polygon(0 6%, 100% 6%, 100% 10%, 0 10%);
+    clip-path: polygon(0 61%, 100% 61%, 100% 93%, 0 93%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   95% {
-    clip-path: polygon(0 63%, 100% 63%, 100% 79%, 0 79%);
+    clip-path: polygon(0 63%, 100% 63%, 100% 10%, 0 10%);
     transform: scale3d(1, 1, 1);
     text-shadow: none;
   }
@@ -1203,15 +1350,15 @@ input[type='submit']:active {
     text-shadow: none;
   }
   97% {
-    clip-path: polygon(0 34%, 100% 34%, 100% 4%, 0 4%);
+    clip-path: polygon(0 55%, 100% 55%, 100% 49%, 0 49%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   98% {
-    clip-path: polygon(0 68%, 100% 68%, 100% 81%, 0 81%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 19%, 0 19%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   99% {
-    clip-path: polygon(0 50%, 100% 50%, 100% 65%, 0 65%);
+    clip-path: polygon(0 69%, 100% 69%, 100% 20%, 0 20%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   100% {
@@ -1262,31 +1409,157 @@ input[type='submit']:active {
 }
 @media only screen and (min-width: 64em) {
   html {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .cont {
     height: 100vh;
-  }
-  .verbose h1 {
-    font-size: 2em;
-  }
-}
-@media only screen and (min-width: 85.375em) {
-  html {
-    font-size: 1.6em;
-  }
-}
-@media only screen and (min-width: 120em) {
-  html {
-    font-size: 2.5em;
   }
   .backlogo {
     width: 15em;
     height: 15em;
   }
+  .verbose h1 {
+    font-size: 3em;
+  }
+  .mm-hamburger {
+    display: none;
+  }
+  .mm-menu {
+    display: block;
+    top: 0;
+    right: 1em;
+    background: transparent;
+    width: auto;
+  }
+  .mm-menu ul li {
+    float: left;
+  }
+  .mm-menu ul li a {
+    padding: 0 1em;
+    color: #ddd;
+  }
+  .mm-menu ul li a:hover {
+    padding-left: 1em;
+    color: #000;
+  }
+  .mm-menu ul li a:hover::before {
+    display: none;
+  }
+  .mm-menu ul li a:hover:active {
+    color: #0ff;
+  }
+  .mm-menu ul li a:hover:active::before {
+    display: none;
+  }
+  .mm-menu ul li a[disabled] {
+    color: rgba(84,82,82,0.3) !important;
+    position: relative;
+    text-shadow: none;
+    box-shadow: none !important;
+  }
+  .mm-menu ul li a[disabled]:active::after {
+    left: 0;
+    bottom: -2.1em;
+  }
+  .mm-menu ul li a[disabled]:hover {
+    background: transparent;
+  }
+  .grabado {
+    text-shadow: -1px -1px #999, 1px 1px #fff;
+  }
+  .mm-hover-box {
+    background: transparent;
+  }
+  .mm-hover-box:hover {
+    background: #fff;
+    box-shadow: 1px 1px #f00, -1px -1px #0ff;
+  }
+  .mm-selected-resp {
+    text-shadow: -1px -1px #fff, 1px 1px #999;
+  }
+  .mm-selected {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .c-folio {
+    padding-top: 2.5em;
+  }
+  .c-contact {
+    padding-top: 4.5em;
+  }
+}
+@media only screen and (min-width: 85.375em) {
+  html {
+    font-size: 1em;
+  }
+  .l-cuerpo {
+    overflow-y: hidden;
+  }
+  .c-about .s-title-cont {
+    width: 5em;
+    height: 21em;
+  }
+  .c-about .s-title {
+    font-size: 5em !important;
+  }
+  .retrato {
+    width: 26em;
+    position: absolute;
+    left: 6em;
+    top: 3em;
+  }
+  .abt-desc-cont {
+    left: auto;
+    height: 100%;
+    right: -21em;
+    transform: skewY(0) skewX(-41deg);
+    margin-top: -3em;
+  }
+  .abt-desc {
+    transform: skewY(0) skewX(41deg);
+    margin: -2em auto 0 12em;
+  }
+  .c-folio {
+    overflow-y: auto;
+  }
+}
+@media only screen and (min-width: 120em) {
+  html {
+    font-size: 1.25em;
+  }
+  .backlogo {
+    width: 15em;
+    height: 15em;
+  }
+  .c-about .s-title-cont {
+    width: 6em;
+    height: 25em;
+  }
+  .c-about .s-title {
+    font-size: 6em !important;
+  }
+  .retrato {
+    width: 30em;
+  }
+  .abt-desc {
+    margin: 1em auto 0 19em;
+  }
 }
 @media only screen and (min-width: 160em) {
   html {
-    font-size: 3em;
+    font-size: 1.25em;
+  }
+  html .c-about .s-title-cont {
+    width: 8em;
+    height: 35em;
+  }
+  html .c-about .s-title {
+    font-size: 8em !important;
+  }
+  html .retrato {
+    width: 40em;
+  }
+  html .abt-desc {
+    margin: 8em auto 0 35em;
   }
 }

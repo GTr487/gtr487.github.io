@@ -8,6 +8,9 @@
 */
 /* ################################################### */
 
+//CONSTANTS
+const AJAX_DIR = '';
+
 //LOG MESSAGE
 
 const emRobot= String.fromCodePoint(0x1F916)
@@ -68,6 +71,9 @@ class ViewHandler {
     $('.mm-selected').removeClass('mm-selected')
     $('#mmHome').addClass('mm-selected')
     $('.menues-backbar').css('background', 'transparent')
+    $('.mm-menu ul li a').addClass('grabado').removeClass('mm-hover-box')
+    $('.social i').addClass('grabado')
+    $('.mm-selected').addClass('mm-selected-resp')
   }
 
   viewCuerpo(obj = false, sec=false){
@@ -76,6 +82,9 @@ class ViewHandler {
       if($('l-cuerpo').css('display') == 'none')
         $('.l-cuerpo').fadeIn(1000);
         $('.menues-backbar').css('background', '#000')
+        $('.mm-menu ul li a').removeClass('grabado').addClass('mm-hover-box')
+        $('.social i').removeClass('grabado')
+        $('.mm-selected').removeClass('mm-selected-resp')
         if(obj && sec)
           obj.viewSection(sec)
     })
@@ -107,30 +116,128 @@ class FolioHandler{
     this.tabla = $(tabla);
     this.dir   = dir;
     this.json  = [];
-    // $(this.tabla).html('')
+    $(this.tabla).html('')
   }
 
   obtenerData(){
-    jQuery.getJSON(this.dir, function(data){
-      this.json = jQuery.parseJSON(data)
-    })
+    var jsonRes
+      try{
+        jQuery.getJSON(this.dir, function(data){
+          this.json = jQuery.parseJSON(data)})
+              .fail(this.getFolioError())
+          }catch(err){console.log('Error de portafolio')}
+
+    // })
+    // this.json = [{
+    //   "titulo":"primer articulo",
+    //   "desc":"esto es un texto de prueba",
+    //   "lenguaje":"Python",
+    //   "img": false,
+    //   "link":"#primer",
+    //   "categoria":"practica"
+    // },{
+    //   "titulo":"segundo articulo",
+    //   "desc":"esto es una prueba2",
+    //   "lenguaje":"Javascript",
+    //   "img": false,
+    //   "link":"#segundo",
+    //   "categoria":"challenge"
+    // },{
+    //   "titulo":"tercer",
+    //   "desc":"desc desc desc",
+    //   "lenguaje":"Java",
+    //   "img": 'assets/img/example.png',
+    //   "link":"#tercero",
+    //   "categoria":"trabajo"
+    // },{
+    //   "titulo":"cuarto",
+    //   "desc":"desc dessssc desc",
+    //   "lenguaje":"Php",
+    //   "img": false,
+    //   "link":"#cuarto",
+    //   "categoria":"codecamp"
+    // },{
+    //   "titulo":"tercer",
+    //   "desc":"desc desc desc",
+    //   "lenguaje":"Bash",
+    //   "img": false,
+    //   "link":"#tercero",
+    //   "categoria":"varios"
+    // }];
   }
 
   crearElemento(obj){
     if(obj){
-      if(obj['img'])
-        var img = $('<img>',{src:obj['img']});
+      var tier = '2';
+      // if(obj['img']){
+      //   var img = $('<img>',{src:obj['img']});
+      //   tier = '1';
+      // }
 
-      var h3   = $('<h3>',{class:'ele-title'}).html(obj['titulo']);
-      var p    = $('<p>',{class:'ele-desc'}).html(obj['desc']);
-      var span = $('<span>',{class:'ele-leng'}).html(obj['lenguaje']);
-      var verb = $('<div>',{class:'ele-verb'}).append(h3, p, span);
-      var elem = $('<a>',{href:obj['link'], class:'fl-ele ele-t' + obj['tier']}).attr('data-categoria', obj['categoria']);
-      if(img)
-        $(elem).append(img)
+      var icon = $('<i>',{class:this.getIconClass(obj['categoria'])});
+      var anc  = $('<a>',{href:obj['link'], class:'ele-title'}).html(obj['titulo']);
+      var cab  = $('<div>',{class:'ele-cab'}).append(icon, anc);
+
+      var desc = $('<p>',{class:'ele-desc'}).html(obj['desc']);
+
+      var lCol = $('<span>',{class:'ele-leng-color'}).css('background', this.getLenguajeColor(obj['lenguaje']));
+      var lNam = $('<span>',{class:'ele-leng-name'}).html(obj['lenguaje']);
+      var leng = $('<p>',{class:'ele-leng'}).append(lCol, lNam);
+
+      var verb = $('<div>',{class:'ele-verb'}).append(cab, desc, leng);
+      var elem = $('<div>',{class:'fl-ele ele-t' + tier}).attr('data-categoria', obj['categoria']);
+
       $(elem).append(verb)
+      // if(img)
+      //   $(elem).append(img)
     }
     return elem
+  }
+
+  getIconClass(val){
+    var icoClass = '';
+    switch (val){
+      case 'trabajo':
+        icoClass = 'fas fa-code';
+        break;
+      case 'codecamp':
+        icoClass = 'fab fa-free-code-camp';
+        break;
+      case 'practica':
+        icoClass = 'fas fa-book';
+        break;
+      case 'challenge':
+        icoClass = 'fas fa-medal';
+        break;
+      case 'varios':
+        icoClass = 'fas fa-ellipsis-h';
+        break;
+    }
+    icoClass += ' ele-icon'
+    return icoClass;
+  }
+
+  getLenguajeColor(lenguaje){
+    switch (lenguaje) {
+      case 'Python':
+        return '#F7C037';
+        break;
+      case 'Java':
+        return '#E42C2E';
+        break;
+      case 'Javascript':
+        return '#EFD81D';
+        break;
+      case 'Php':
+        return '#7478AF';
+        break;
+      case 'Bash':
+        return '#000000';
+        break;
+      case 'Error':
+        return 'transparent';
+        break;
+    }
   }
 
   cargarTabla(){
@@ -151,14 +258,24 @@ class FolioHandler{
   filtrarTabla(){
     var search = $('#flSelect').val()
 
-    if((search != 'cTodo') && search){
+    if((search != 'todo') && search){
       $('.fl-ele').hide()
       $('.fl-ele[data-categoria="' +search+ '"]').show()
-    }else if(search == 'cTodo'){
+    }else if(search == 'todo'){
       $('.fl-ele').show()
     }else{
       $('.fl-ele').hide()
     }
+  }
+
+  getFolioError(){
+    console.error('ERROR AL CARGAR EL PORTAFOLIO', 'Peticion Ajax fallida');
+    this.json = [{
+                  "titulo":"Error",
+                  "desc":"Ocurrio un error al cargar el contenido",
+                  "lenguaje":"Error",
+                  "link":"#",
+                  "categoria":"varios"}];
   }
 }
 
@@ -166,11 +283,10 @@ class FolioHandler{
 
 $(document).ready(function(){
   var vHandler = new ViewHandler();
-  var fHandler = new FolioHandler('#flDisplay', 'https://gtr487.github.io/data/page/cv.json')
+  var fHandler = new FolioHandler('#flDisplay', AJAX_DIR)
 
   console.log(logMess, styMessTitle, styMess, styMessFoot)
-  // fHandler.cargarTabla()
-  // fHandler.ordenartabla()
+  fHandler.cargarTabla()
 
 
   $('.verbose').hide();
@@ -208,6 +324,16 @@ $(document).ready(function(){
     fHandler.filtrarTabla()
   })
 
+  $('#viewPortafolio').on('click',function(e){
+    vHandler.view('folio')
+  })
+  // $(window).resize(function(){
+  //
+  //        if ($('header').width() >= 1366 ){
+  //           console.log('>1366')
+  //        }else{console.log('<1366')}
+  //
+  // });
 });
 
 

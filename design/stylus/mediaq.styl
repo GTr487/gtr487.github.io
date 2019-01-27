@@ -15,14 +15,105 @@
   .cont
     height 100vh
 
+  .backlogo
+    width 15em
+    height 15em
+
   .verbose
     h1
-      font-size 2em
+      font-size 3em
+
+  .mm-hamburger
+    display none
+
+  .mm-menu
+    display block
+    top 0
+    right 1em
+    background transparent
+    width auto
+    & ul li
+      float left
+      & a
+        padding 0 1em
+        color #ddd
+        &:hover
+          padding-left 1em
+          color black
+          &::before
+            display none
+          &:active
+            color #0ff
+            &::before
+              display none
+        &[disabled]
+          color rgba(84, 82, 82, 0.3) !important
+          position relative
+          text-shadow none
+          box-shadow none !important
+          &:active::after
+            left 0
+            bottom -2.1em
+          &:hover
+            background transparent
+
+  .grabado
+    text-shadow -1px -1px #999, 1px 1px #fff
+
+  .mm-hover-box
+    background transparent
+    &:hover
+      background white
+      box-shadow 1px 1px #f00, -1px -1px #0ff
+
+  .mm-selected-resp
+    text-shadow -1px -1px #fff, 1px 1px #999
+
+  .mm-selected
+    box-shadow none !important
+    background transparent !important
+
+  .c-folio
+    padding-top 2.5em
+
+  .c-contact
+    padding-top 4.5em
+
 
 ////
 @media only screen and (min-width: bp-large)
   html
     font-size large_font-size
+
+  .l-cuerpo
+    overflow-y hidden
+
+  .c-about
+    & .s-title-cont
+      width 5em
+      height 21em
+    & .s-title
+      font-size 5em !important
+
+  .retrato
+    width 26em
+    position absolute
+    left 6em
+    top 3em
+
+  .abt-desc-cont
+    left auto
+    height 100%
+    right -21em
+    transform skewY(0) skewX(-41deg)
+    margin-top -3em
+
+  .abt-desc
+    transform skewY(0) skewX(41deg)
+    margin -2em auto 0 12em
+
+  .c-folio
+    overflow-y auto
 
 //////
 @media only screen and (min-width: bp-xlarge)
@@ -33,7 +124,33 @@
     width 15em
     height 15em
 
+  .c-about
+    & .s-title-cont
+      width 6em
+      height 25em
+    & .s-title
+      font-size 6em !important
+
+  .retrato
+    width 30em
+
+  .abt-desc
+    margin 1em auto 0 19em
+
 //////
 @media only screen and (min-width: bp-xxlarge)
   html
     font-size xxlarge_font-size
+
+    .c-about
+      & .s-title-cont
+        width 8em
+        height 35em
+      & .s-title
+        font-size 8em !important
+
+    .retrato
+      width 40em
+
+    .abt-desc
+      margin 8em auto 0 35em

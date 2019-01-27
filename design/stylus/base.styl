@@ -12,6 +12,12 @@ body
   height 100vh
   overflow hidden
 
+hr
+  border 0
+  height 0
+  border-top 1px solid #222
+  margin 1.5em
+
 form
   text-align center
 
@@ -62,6 +68,7 @@ input
     &:focus
       color #000
   &[type='submit']
+    cursor pointer
     &:valid
       color white
     &:focus
@@ -101,9 +108,3 @@ input
   transform translate(6px, 2px)
   .trazo-Logo
     fill red !important
-
-.link
-  font-weight bold
-  text-shadow 0 0 1px #0ff
-  &:hover
-    text-shadow 1px 1px 0 #f00, -1px -1px 0 #0ff
