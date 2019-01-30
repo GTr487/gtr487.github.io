@@ -4,7 +4,7 @@
     <meta cahrset="utf-8">
     <meta>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-    <meta name="theme" content="#000">
+    <meta name="theme-color" content="#000000">
     <meta name="author" content="Günther Molina">
     <meta name="description" content="Günther Molina &lt;developer&gt; pagina personal">
     <meta name="format-detection" content="telephone=no">
@@ -129,17 +129,18 @@
           </div>
         </div>
         <div style="display: none" class="c-section c-contact">
-          <form class="c-form">
+          <form action="https://formspree.io/gunther.molina.487@gmail.com" method="POST" class="c-form">
             <h2 class="s-title glitch-rotate-titles">Contactame</h2>
             <div class="inp-cont"><i class="far fa-user icon"></i>
-              <input type="text" placeholder="Nombre" pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+" title="Debes introducir un nombre valido" required>
+              <input type="text" name="Nombre" placeholder="Nombre" pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+" title="Debes introducir un nombre valido" required>
             </div>
             <div class="inp-cont"><i class="fas fa-at icon"></i>
-              <input type="email" placeholder="Email" required>
+              <input type="email" name="_replyto" placeholder="Email" required>
             </div>
             <div class="inp-cont"><i class="far fa-comment icon"></i>
-              <textarea placeholder="Mensaje" required></textarea>
+              <textarea placeholder="Mensaje" name="Mensaje" required></textarea>
             </div>
+            <input type="hidden" name="_subject" value="Nuevo contacto!">
             <div class="btn-submit">
               <input type="submit" value="Enviar">
             </div>
