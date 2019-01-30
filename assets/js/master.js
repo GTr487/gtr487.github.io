@@ -1,15 +1,16 @@
 
 /* ################################################### */
 /*
-*  [ @Master ] - Personal Page (alpha 0.1)
+*  [ @Master ] - Personal Page (v1.0)
 *    Author: Gunther Molina
 *    Modificacion:
 *        09/01/19 - [/alpha]
+*        30/01/19 - [/v1.0]
 */
 /* ################################################### */
 
 //CONSTANTS
-const AJAX_DIR = '';
+const AJAX_DIR = 'https://gtr487.github.io/data/page/folio.json';
 
 //LOG MESSAGE
 
@@ -116,63 +117,34 @@ class FolioHandler{
     this.tabla = $(tabla);
     this.dir   = dir;
     this.json  = [];
-    $(this.tabla).html('')
   }
 
-  obtenerData(){
-    var jsonRes
+  obtenerData(callback){
+    var self = this;
       try{
-        jQuery.getJSON(this.dir, function(data){
-          this.json = jQuery.parseJSON(data)})
-              .fail(this.getFolioError())
-          }catch(err){console.log('Error de portafolio')}
+        jQuery.getJSON(self.dir, function(data){
+          self.actualizarFreelance(data['freelance']);
+          self.json = data['folio'];
+        })
+        .then(callback, () => {
+          self.getFolioError(
+            {title:'ERROR EN CONSULTA AJAX', desc:'No se pudo realizar la consulta con exito.'}, callback
+          )
+        })
+        }catch(err){}
+  }
 
-    // })
-    // this.json = [{
-    //   "titulo":"primer articulo",
-    //   "desc":"esto es un texto de prueba",
-    //   "lenguaje":"Python",
-    //   "img": false,
-    //   "link":"#primer",
-    //   "categoria":"practica"
-    // },{
-    //   "titulo":"segundo articulo",
-    //   "desc":"esto es una prueba2",
-    //   "lenguaje":"Javascript",
-    //   "img": false,
-    //   "link":"#segundo",
-    //   "categoria":"challenge"
-    // },{
-    //   "titulo":"tercer",
-    //   "desc":"desc desc desc",
-    //   "lenguaje":"Java",
-    //   "img": 'assets/img/example.png',
-    //   "link":"#tercero",
-    //   "categoria":"trabajo"
-    // },{
-    //   "titulo":"cuarto",
-    //   "desc":"desc dessssc desc",
-    //   "lenguaje":"Php",
-    //   "img": false,
-    //   "link":"#cuarto",
-    //   "categoria":"codecamp"
-    // },{
-    //   "titulo":"tercer",
-    //   "desc":"desc desc desc",
-    //   "lenguaje":"Bash",
-    //   "img": false,
-    //   "link":"#tercero",
-    //   "categoria":"varios"
-    // }];
+  actualizarFreelance(val){
+    if(val){
+      $('#abt-freelance').show()
+    }else{
+      $('#abt-freelance').hide()
+    }
   }
 
   crearElemento(obj){
     if(obj){
       var tier = '2';
-      // if(obj['img']){
-      //   var img = $('<img>',{src:obj['img']});
-      //   tier = '1';
-      // }
 
       var icon = $('<i>',{class:this.getIconClass(obj['categoria'])});
       var anc  = $('<a>',{href:obj['link'], class:'ele-title'}).html(obj['titulo']);
@@ -188,8 +160,6 @@ class FolioHandler{
       var elem = $('<div>',{class:'fl-ele ele-t' + tier}).attr('data-categoria', obj['categoria']);
 
       $(elem).append(verb)
-      // if(img)
-      //   $(elem).append(img)
     }
     return elem
   }
@@ -234,6 +204,9 @@ class FolioHandler{
       case 'Bash':
         return '#000000';
         break;
+      case 'Html':
+        return '#E34C26';
+        break;
       case 'Error':
         return 'transparent';
         break;
@@ -241,11 +214,22 @@ class FolioHandler{
   }
 
   cargarTabla(){
-    this.obtenerData();
-    var ele;
-    for(ele in this.json){
-      $(this.tabla).append(this.crearElemento(this.json[ele]));
-    }
+    $(this.tabla).html('')
+    var self = this;
+    var t_json = [{"titulo":"CARGANDO CONTENIDO",
+                  "desc":"Si estas leyendo este mensaje, tranquilo, se esta cargando el conteido",
+                  "lenguaje":"Bash",
+                  "link":"#",
+                  "categoria":"varios"}];
+    $(self.tabla).append(self.crearElemento(t_json));
+
+    this.obtenerData(function(){
+      $(self.tabla).html('')
+      var ele;
+      for(ele in self.json){
+        $(self.tabla).append(self.crearElemento(self.json[ele]));
+      }
+    });
   }
 
   buscarTabla(){
@@ -268,24 +252,76 @@ class FolioHandler{
     }
   }
 
-  getFolioError(){
-    console.error('ERROR AL CARGAR EL PORTAFOLIO', 'Peticion Ajax fallida');
-    this.json = [{
-                  "titulo":"Error",
-                  "desc":"Ocurrio un error al cargar el contenido",
+  getFolioError(err, callback){
+    console.error(err['title'] + '\n', err['desc'] );
+    this.json = [{"titulo":err['title'],
+                  "desc":err['desc'],
                   "lenguaje":"Error",
                   "link":"#",
                   "categoria":"varios"}];
+
+    callback();
   }
+}
+
+//////////////////////
+
+class MessageHandler{
+    constructor(){
+      if(window.location.search.substring(1).length > 0){
+        if(this.getTnksMessage()){
+          this.crearModal();
+        }
+      }
+
+    }
+
+    crearModal(){
+      var title = $('<h3>', {class:'modal-title'}).html(this.title);
+      var verb  = $('<p>', {class:'modal-verbose'}).html(this.msg);
+      var btn   = $('<button>', {class:'btn modal-btn'}).html('ACEPTAR')
+
+      var win = $('<div>', {class:'modal-window'}).append(title, verb, btn)
+      var back  = $('<div>', {class:'modal-background'}).append(win)
+
+      $('.cont').append(back)
+
+      $(back).find('.modal-btn').on('click', function(){
+        $(back).remove()
+        window.location.replace('index.html')
+      })
+    }
+
+    getTnksMessage(){
+      if(this.getURLValue('msg_ID') == 'tnksContact'){
+        this.title = 'GRACIAS!';
+        this.msg  = 'Mensaje enviado con éxito, pronto me estaré comunicando con usted!'
+        return true;
+      }
+      return false;
+    }
+
+    getURLValue(key){
+      var res = false;
+      var arrQuery = window.location.search.substring(1).split('&');
+      arrQuery.forEach(function(palabra){
+        var par = palabra.split('=');
+        if(par[0] == key)
+          res = par[1];
+      })
+      return res;
+
+    }
 }
 
 //READY DOCUMENT SECTION
 
 $(document).ready(function(){
-  var vHandler = new ViewHandler();
-  var fHandler = new FolioHandler('#flDisplay', AJAX_DIR)
-
   console.log(logMess, styMessTitle, styMess, styMessFoot)
+  var vHandler   = new ViewHandler();
+  var msgHandler = new MessageHandler();
+  var fHandler   = new FolioHandler('#flDisplay', AJAX_DIR)
+
   fHandler.cargarTabla()
 
 
@@ -327,13 +363,6 @@ $(document).ready(function(){
   $('#viewPortafolio').on('click',function(e){
     vHandler.view('folio')
   })
-  // $(window).resize(function(){
-  //
-  //        if ($('header').width() >= 1366 ){
-  //           console.log('>1366')
-  //        }else{console.log('<1366')}
-  //
-  // });
 });
 
 

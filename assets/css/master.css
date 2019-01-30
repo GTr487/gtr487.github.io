@@ -1,10 +1,11 @@
 @charset "UTF-8";
 /** ################################################### */
 /**
-*  [ @Master ] - Personal Page (alpha 0.1)
+*  [ @Master ] - Personal Page (v1.0)
 *    Author: Gunther Molina
 *    Modificacion:
 *        09/01/19 - [/alpha]
+*        30/01/19 - [/v1.0]
 */
 /** ----------
 *   $INDEX
@@ -745,10 +746,11 @@ input[type='submit']:active {
   color: #fff;
   cursor: pointer;
   background: #000;
-  border: 3px solid #000;
+  border: none;
   padding: 0.5em;
   font-size: 1em;
   text-transform: uppercase;
+  outline: none;
   font-weight: bold;
   position: relative;
   overflow: hidden;
@@ -840,6 +842,41 @@ input[type='submit']:active {
 .blog-prox {
   color: #999;
 }
+.modal-background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal-window {
+  display: inline-block;
+  background: #fafafa;
+  border: 4px solid #000;
+  box-shadow: 2px 2px #f00, -2px -2px #0ff;
+  margin: 1em;
+}
+.modal-title {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+}
+.modal-verbose {
+  font-size: 1em;
+  color: #000;
+  text-align: center;
+  margin: 0.5em;
+}
+.modal-btn {
+  margin: auto;
+  margin-bottom: 1em;
+}
 /** ----------
 * $Keyframes
 */
@@ -851,31 +888,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 37%, 100% 37%, 100% 48%, 0 48%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 47%, 0 47%);
   }
   92% {
-    clip-path: polygon(0 16%, 100% 16%, 100% 71%, 0 71%);
+    clip-path: polygon(0 93%, 100% 93%, 100% 19%, 0 19%);
   }
   93% {
-    clip-path: polygon(0 61%, 100% 61%, 100% 83%, 0 83%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 50%, 0 50%);
   }
   94% {
-    clip-path: polygon(0 23%, 100% 23%, 100% 6%, 0 6%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 36%, 0 36%);
   }
   95% {
-    clip-path: polygon(0 74%, 100% 74%, 100% 94%, 0 94%);
+    clip-path: polygon(0 28%, 100% 28%, 100% 37%, 0 37%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 32%, 100% 32%, 100% 98%, 0 98%);
+    clip-path: polygon(0 91%, 100% 91%, 100% 13%, 0 13%);
   }
   98% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 14%, 0 14%);
+    clip-path: polygon(0 26%, 100% 26%, 100% 85%, 0 85%);
   }
   99% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 99%, 0 99%);
+    clip-path: polygon(0 84%, 100% 84%, 100% 55%, 0 55%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -889,31 +926,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 37%, 100% 37%, 100% 48%, 0 48%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 47%, 0 47%);
   }
   92% {
-    clip-path: polygon(0 16%, 100% 16%, 100% 71%, 0 71%);
+    clip-path: polygon(0 93%, 100% 93%, 100% 19%, 0 19%);
   }
   93% {
-    clip-path: polygon(0 61%, 100% 61%, 100% 83%, 0 83%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 50%, 0 50%);
   }
   94% {
-    clip-path: polygon(0 23%, 100% 23%, 100% 6%, 0 6%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 36%, 0 36%);
   }
   95% {
-    clip-path: polygon(0 74%, 100% 74%, 100% 94%, 0 94%);
+    clip-path: polygon(0 28%, 100% 28%, 100% 37%, 0 37%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 32%, 100% 32%, 100% 98%, 0 98%);
+    clip-path: polygon(0 91%, 100% 91%, 100% 13%, 0 13%);
   }
   98% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 14%, 0 14%);
+    clip-path: polygon(0 26%, 100% 26%, 100% 85%, 0 85%);
   }
   99% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 99%, 0 99%);
+    clip-path: polygon(0 84%, 100% 84%, 100% 55%, 0 55%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -927,31 +964,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 37%, 100% 37%, 100% 48%, 0 48%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 47%, 0 47%);
   }
   92% {
-    clip-path: polygon(0 16%, 100% 16%, 100% 71%, 0 71%);
+    clip-path: polygon(0 93%, 100% 93%, 100% 19%, 0 19%);
   }
   93% {
-    clip-path: polygon(0 61%, 100% 61%, 100% 83%, 0 83%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 50%, 0 50%);
   }
   94% {
-    clip-path: polygon(0 23%, 100% 23%, 100% 6%, 0 6%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 36%, 0 36%);
   }
   95% {
-    clip-path: polygon(0 74%, 100% 74%, 100% 94%, 0 94%);
+    clip-path: polygon(0 28%, 100% 28%, 100% 37%, 0 37%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 32%, 100% 32%, 100% 98%, 0 98%);
+    clip-path: polygon(0 91%, 100% 91%, 100% 13%, 0 13%);
   }
   98% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 14%, 0 14%);
+    clip-path: polygon(0 26%, 100% 26%, 100% 85%, 0 85%);
   }
   99% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 99%, 0 99%);
+    clip-path: polygon(0 84%, 100% 84%, 100% 55%, 0 55%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -965,31 +1002,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   91% {
-    clip-path: polygon(0 37%, 100% 37%, 100% 48%, 0 48%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 47%, 0 47%);
   }
   92% {
-    clip-path: polygon(0 16%, 100% 16%, 100% 71%, 0 71%);
+    clip-path: polygon(0 93%, 100% 93%, 100% 19%, 0 19%);
   }
   93% {
-    clip-path: polygon(0 61%, 100% 61%, 100% 83%, 0 83%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 50%, 0 50%);
   }
   94% {
-    clip-path: polygon(0 23%, 100% 23%, 100% 6%, 0 6%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 36%, 0 36%);
   }
   95% {
-    clip-path: polygon(0 74%, 100% 74%, 100% 94%, 0 94%);
+    clip-path: polygon(0 28%, 100% 28%, 100% 37%, 0 37%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
   }
   97% {
-    clip-path: polygon(0 32%, 100% 32%, 100% 98%, 0 98%);
+    clip-path: polygon(0 91%, 100% 91%, 100% 13%, 0 13%);
   }
   98% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 14%, 0 14%);
+    clip-path: polygon(0 26%, 100% 26%, 100% 85%, 0 85%);
   }
   99% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 99%, 0 99%);
+    clip-path: polygon(0 84%, 100% 84%, 100% 55%, 0 55%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
@@ -1003,31 +1040,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 12%, 100% 12%, 100% 79%, 0 79%);
+    clip-path: polygon(0 98%, 100% 98%, 100% 67%, 0 67%);
   }
   92% {
-    clip-path: polygon(0 58%, 100% 58%, 100% 37%, 0 37%);
+    clip-path: polygon(0 7%, 100% 7%, 100% 33%, 0 33%);
   }
   93% {
-    clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%);
+    clip-path: polygon(0 6%, 100% 6%, 100% 75%, 0 75%);
   }
   94% {
-    clip-path: polygon(0 44%, 100% 44%, 100% 91%, 0 91%);
+    clip-path: polygon(0 23%, 100% 23%, 100% 23%, 0 23%);
   }
   95% {
-    clip-path: polygon(0 83%, 100% 83%, 100% 65%, 0 65%);
+    clip-path: polygon(0 28%, 100% 28%, 100% 66%, 0 66%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 46%, 100% 46%, 100% 40%, 0 40%);
+    clip-path: polygon(0 41%, 100% 41%, 100% 40%, 0 40%);
   }
   98% {
-    clip-path: polygon(0 96%, 100% 96%, 100% 25%, 0 25%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 67%, 0 67%);
   }
   99% {
-    clip-path: polygon(0 33%, 100% 33%, 100% 82%, 0 82%);
+    clip-path: polygon(0 76%, 100% 76%, 100% 100%, 0 100%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -1041,31 +1078,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 12%, 100% 12%, 100% 79%, 0 79%);
+    clip-path: polygon(0 98%, 100% 98%, 100% 67%, 0 67%);
   }
   92% {
-    clip-path: polygon(0 58%, 100% 58%, 100% 37%, 0 37%);
+    clip-path: polygon(0 7%, 100% 7%, 100% 33%, 0 33%);
   }
   93% {
-    clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%);
+    clip-path: polygon(0 6%, 100% 6%, 100% 75%, 0 75%);
   }
   94% {
-    clip-path: polygon(0 44%, 100% 44%, 100% 91%, 0 91%);
+    clip-path: polygon(0 23%, 100% 23%, 100% 23%, 0 23%);
   }
   95% {
-    clip-path: polygon(0 83%, 100% 83%, 100% 65%, 0 65%);
+    clip-path: polygon(0 28%, 100% 28%, 100% 66%, 0 66%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 46%, 100% 46%, 100% 40%, 0 40%);
+    clip-path: polygon(0 41%, 100% 41%, 100% 40%, 0 40%);
   }
   98% {
-    clip-path: polygon(0 96%, 100% 96%, 100% 25%, 0 25%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 67%, 0 67%);
   }
   99% {
-    clip-path: polygon(0 33%, 100% 33%, 100% 82%, 0 82%);
+    clip-path: polygon(0 76%, 100% 76%, 100% 100%, 0 100%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -1079,31 +1116,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 12%, 100% 12%, 100% 79%, 0 79%);
+    clip-path: polygon(0 98%, 100% 98%, 100% 67%, 0 67%);
   }
   92% {
-    clip-path: polygon(0 58%, 100% 58%, 100% 37%, 0 37%);
+    clip-path: polygon(0 7%, 100% 7%, 100% 33%, 0 33%);
   }
   93% {
-    clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%);
+    clip-path: polygon(0 6%, 100% 6%, 100% 75%, 0 75%);
   }
   94% {
-    clip-path: polygon(0 44%, 100% 44%, 100% 91%, 0 91%);
+    clip-path: polygon(0 23%, 100% 23%, 100% 23%, 0 23%);
   }
   95% {
-    clip-path: polygon(0 83%, 100% 83%, 100% 65%, 0 65%);
+    clip-path: polygon(0 28%, 100% 28%, 100% 66%, 0 66%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 46%, 100% 46%, 100% 40%, 0 40%);
+    clip-path: polygon(0 41%, 100% 41%, 100% 40%, 0 40%);
   }
   98% {
-    clip-path: polygon(0 96%, 100% 96%, 100% 25%, 0 25%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 67%, 0 67%);
   }
   99% {
-    clip-path: polygon(0 33%, 100% 33%, 100% 82%, 0 82%);
+    clip-path: polygon(0 76%, 100% 76%, 100% 100%, 0 100%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -1117,31 +1154,31 @@ input[type='submit']:active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   91% {
-    clip-path: polygon(0 12%, 100% 12%, 100% 79%, 0 79%);
+    clip-path: polygon(0 98%, 100% 98%, 100% 67%, 0 67%);
   }
   92% {
-    clip-path: polygon(0 58%, 100% 58%, 100% 37%, 0 37%);
+    clip-path: polygon(0 7%, 100% 7%, 100% 33%, 0 33%);
   }
   93% {
-    clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%);
+    clip-path: polygon(0 6%, 100% 6%, 100% 75%, 0 75%);
   }
   94% {
-    clip-path: polygon(0 44%, 100% 44%, 100% 91%, 0 91%);
+    clip-path: polygon(0 23%, 100% 23%, 100% 23%, 0 23%);
   }
   95% {
-    clip-path: polygon(0 83%, 100% 83%, 100% 65%, 0 65%);
+    clip-path: polygon(0 28%, 100% 28%, 100% 66%, 0 66%);
   }
   96% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   97% {
-    clip-path: polygon(0 46%, 100% 46%, 100% 40%, 0 40%);
+    clip-path: polygon(0 41%, 100% 41%, 100% 40%, 0 40%);
   }
   98% {
-    clip-path: polygon(0 96%, 100% 96%, 100% 25%, 0 25%);
+    clip-path: polygon(0 18%, 100% 18%, 100% 67%, 0 67%);
   }
   99% {
-    clip-path: polygon(0 33%, 100% 33%, 100% 82%, 0 82%);
+    clip-path: polygon(0 76%, 100% 76%, 100% 100%, 0 100%);
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -1159,23 +1196,23 @@ input[type='submit']:active {
     text-shadow: none;
   }
   91% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 3%, 0 3%);
+    clip-path: polygon(0 57%, 100% 57%, 100% 30%, 0 30%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   92% {
-    clip-path: polygon(0 52%, 100% 52%, 100% 50%, 0 50%);
+    clip-path: polygon(0 3%, 100% 3%, 100% 15%, 0 15%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   93% {
-    clip-path: polygon(0 33%, 100% 33%, 100% 28%, 0 28%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 1%, 0 1%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   94% {
-    clip-path: polygon(0 61%, 100% 61%, 100% 93%, 0 93%);
+    clip-path: polygon(0 99%, 100% 99%, 100% 12%, 0 12%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   95% {
-    clip-path: polygon(0 63%, 100% 63%, 100% 10%, 0 10%);
+    clip-path: polygon(0 56%, 100% 56%, 100% 43%, 0 43%);
     transform: scale3d(1, 1, 1);
     text-shadow: none;
   }
@@ -1185,15 +1222,15 @@ input[type='submit']:active {
     text-shadow: none;
   }
   97% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 49%, 0 49%);
+    clip-path: polygon(0 43%, 100% 43%, 100% 32%, 0 32%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   98% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 19%, 0 19%);
+    clip-path: polygon(0 58%, 100% 58%, 100% 76%, 0 76%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   99% {
-    clip-path: polygon(0 69%, 100% 69%, 100% 20%, 0 20%);
+    clip-path: polygon(0 1%, 100% 1%, 100% 86%, 0 86%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   100% {
@@ -1214,23 +1251,23 @@ input[type='submit']:active {
     text-shadow: none;
   }
   91% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 3%, 0 3%);
+    clip-path: polygon(0 57%, 100% 57%, 100% 30%, 0 30%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   92% {
-    clip-path: polygon(0 52%, 100% 52%, 100% 50%, 0 50%);
+    clip-path: polygon(0 3%, 100% 3%, 100% 15%, 0 15%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   93% {
-    clip-path: polygon(0 33%, 100% 33%, 100% 28%, 0 28%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 1%, 0 1%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   94% {
-    clip-path: polygon(0 61%, 100% 61%, 100% 93%, 0 93%);
+    clip-path: polygon(0 99%, 100% 99%, 100% 12%, 0 12%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   95% {
-    clip-path: polygon(0 63%, 100% 63%, 100% 10%, 0 10%);
+    clip-path: polygon(0 56%, 100% 56%, 100% 43%, 0 43%);
     transform: scale3d(1, 1, 1);
     text-shadow: none;
   }
@@ -1240,15 +1277,15 @@ input[type='submit']:active {
     text-shadow: none;
   }
   97% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 49%, 0 49%);
+    clip-path: polygon(0 43%, 100% 43%, 100% 32%, 0 32%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   98% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 19%, 0 19%);
+    clip-path: polygon(0 58%, 100% 58%, 100% 76%, 0 76%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   99% {
-    clip-path: polygon(0 69%, 100% 69%, 100% 20%, 0 20%);
+    clip-path: polygon(0 1%, 100% 1%, 100% 86%, 0 86%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   100% {
@@ -1269,23 +1306,23 @@ input[type='submit']:active {
     text-shadow: none;
   }
   91% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 3%, 0 3%);
+    clip-path: polygon(0 57%, 100% 57%, 100% 30%, 0 30%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   92% {
-    clip-path: polygon(0 52%, 100% 52%, 100% 50%, 0 50%);
+    clip-path: polygon(0 3%, 100% 3%, 100% 15%, 0 15%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   93% {
-    clip-path: polygon(0 33%, 100% 33%, 100% 28%, 0 28%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 1%, 0 1%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   94% {
-    clip-path: polygon(0 61%, 100% 61%, 100% 93%, 0 93%);
+    clip-path: polygon(0 99%, 100% 99%, 100% 12%, 0 12%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   95% {
-    clip-path: polygon(0 63%, 100% 63%, 100% 10%, 0 10%);
+    clip-path: polygon(0 56%, 100% 56%, 100% 43%, 0 43%);
     transform: scale3d(1, 1, 1);
     text-shadow: none;
   }
@@ -1295,15 +1332,15 @@ input[type='submit']:active {
     text-shadow: none;
   }
   97% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 49%, 0 49%);
+    clip-path: polygon(0 43%, 100% 43%, 100% 32%, 0 32%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   98% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 19%, 0 19%);
+    clip-path: polygon(0 58%, 100% 58%, 100% 76%, 0 76%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   99% {
-    clip-path: polygon(0 69%, 100% 69%, 100% 20%, 0 20%);
+    clip-path: polygon(0 1%, 100% 1%, 100% 86%, 0 86%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   100% {
@@ -1324,23 +1361,23 @@ input[type='submit']:active {
     text-shadow: none;
   }
   91% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 3%, 0 3%);
+    clip-path: polygon(0 57%, 100% 57%, 100% 30%, 0 30%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   92% {
-    clip-path: polygon(0 52%, 100% 52%, 100% 50%, 0 50%);
+    clip-path: polygon(0 3%, 100% 3%, 100% 15%, 0 15%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   93% {
-    clip-path: polygon(0 33%, 100% 33%, 100% 28%, 0 28%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 1%, 0 1%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   94% {
-    clip-path: polygon(0 61%, 100% 61%, 100% 93%, 0 93%);
+    clip-path: polygon(0 99%, 100% 99%, 100% 12%, 0 12%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   95% {
-    clip-path: polygon(0 63%, 100% 63%, 100% 10%, 0 10%);
+    clip-path: polygon(0 56%, 100% 56%, 100% 43%, 0 43%);
     transform: scale3d(1, 1, 1);
     text-shadow: none;
   }
@@ -1350,15 +1387,15 @@ input[type='submit']:active {
     text-shadow: none;
   }
   97% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 49%, 0 49%);
+    clip-path: polygon(0 43%, 100% 43%, 100% 32%, 0 32%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   98% {
-    clip-path: polygon(0 20%, 100% 20%, 100% 19%, 0 19%);
+    clip-path: polygon(0 58%, 100% 58%, 100% 76%, 0 76%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   99% {
-    clip-path: polygon(0 69%, 100% 69%, 100% 20%, 0 20%);
+    clip-path: polygon(0 1%, 100% 1%, 100% 86%, 0 86%);
     text-shadow: 1px 2px 0 #f00, -2px -2px 0 #0ff;
   }
   100% {
@@ -1486,6 +1523,12 @@ input[type='submit']:active {
   }
   .c-contact {
     padding-top: 4.5em;
+  }
+  .modal-title {
+    font-size: 2em;
+  }
+  .modal-verbose {
+    font-size: 1.5em;
   }
 }
 @media only screen and (min-width: 85.375em) {

@@ -1,16 +1,18 @@
 //- include/contact.jade
 
 .c-section.c-contact(style='display: none')
-  form.c-form
+  form.c-form(action="https://formspree.io/gunther.molina.487@gmail.com" method="POST")
     h2.s-title.glitch-rotate-titles Contactame
     .inp-cont
       i.far.fa-user.icon
-      input(type="text" placeholder="Nombre" pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+" title='Debes introducir un nombre valido' required)
+      input(type="text" name='Nombre' placeholder="Nombre" pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+" title='Debes introducir un nombre valido' required)
     .inp-cont
       i.fas.fa-at.icon
-      input(type="email" placeholder="Email" required)
+      input(type="email" name="_replyto" placeholder="Email" required)
     .inp-cont
       i.far.fa-comment.icon
-      textarea(placeholder="Mensaje" required)
+      textarea(placeholder="Mensaje" name='Mensaje' required)
+    //- input(type="hidden" name="_next" value="https://gtr487.github.io/index.html?msg_ID=tnksContact")
+    input(type="hidden" name="_subject" value="Nuevo contacto!")
     .btn-submit
       input(type="submit" value="Enviar")
